@@ -1,0 +1,149 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+.carousel {
+	width: 440px;
+}
+.carousel-caption {
+	color: maroon;
+	bottom: -130px;
+}
+.carousel .item {
+	text-align: center;
+}
+.carousel-inner {
+	padding-bottom: 170px;
+}
+.carousel-inner > .item > img {
+	margin: 0 auto;
+}
+.carousel-indicators li {
+	background-color: rgba(255, 255, 255, 0);
+    border: 1px solid #000;
+}
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+body, #bestsellers, #shop {
+	padding-top: 40px;
+}
+h1, h2 {
+	color: #613A67;
+}
+.featurette-heading {
+	color: #333;
+}
+.navbar-inverse {
+	background-image: -webkit-linear-gradient(top, #613A67 0%, #B7ADD2 100%);
+	background-image:         linear-gradient(to bottom, #613A67 0%, #B7ADD2 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff613A67', endColorstr='#ffB7ADD2', GradientType=0);
+	background-repeat: repeat-x;
+	border-color: #613A67;
+}
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
+	background-image: -webkit-linear-gradient(top, #B7ADD2 0%, #613A67 100%);
+	background-image:         linear-gradient(to bottom, #B7ADD2 0%, #613A67 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff613A67', endColorstr='#ffB7ADD2', GradientType=0);
+	background-repeat: repeat-x;
+}
+.navbar-inverse .navbar-brand,
+.navbar-inverse .navbar-nav > li > a {
+	text-shadow: none;
+	color: #fff;	
+}
+.navbar-inverse .navbar-toggle {
+	border-color: #613A67;
+}
+.navbar .pull-right {
+    padding-top: 16px;
+}
+#like {
+	padding-top: 40px;
+	padding-bottom: 10px;
+}
+.carousel-control-extra-wrapper {
+	bottom: 10px;
+    left: 50%;
+    margin-left: -30%;
+    padding-left: 0;
+    position: absolute;
+    text-align: center;
+    width: 60%;
+    z-index: 15;
+}
+.carousel-control-extra, span[class*="chevron-"] {
+	cursor: pointer;
+}
+#cart-wrapper .table > thead > tr > th {
+	vertical-align: top;	
+}
+.cart-item-amount {
+	width: 64px !important;	
+}
+#cart-item-amount + label {
+	font-weight: normal;
+}
+#cart-item-size {
+	max-width: 220px !important;
+}
+#cart-item-promocode {
+	width: 130px;
+}
+.dashed-link {
+    border-bottom-style: dashed;
+    border-bottom-width: 1px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+.dashed-link:hover {
+	text-decoration: none;
+}
+.price, #blueimp-gallery .modal-title {
+	color: maroon;
+}
+.zoom-in {
+	cursor: -webkit-zoom-in;
+	cursor: zoom-in;
+}
+.well {
+	max-width: 700px;
+}
+#links a:hover {
+	text-decoration: none;
+	opacity: 0.7;
+}
+#footer {
+	background-image: -webkit-linear-gradient(top, #B7ADD2 0%, #613A67 100%);
+	background-image:         linear-gradient(to bottom, #B7ADD2 0%, #613A67 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffB7ADD2', endColorstr='#ff613A67', GradientType=0);
+	background-repeat: repeat-x;
+}
+#footer .text-muted {
+	margin: 20px 0;
+	color: #333;
+}
+#footer .text-muted small, #footer .text-muted a {
+	color: #333;	
+}
+#footer .text-muted a {
+	text-decoration: underline;	
+}

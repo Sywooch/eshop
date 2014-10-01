@@ -12,7 +12,7 @@ $page = trim($_SERVER['PHP_SELF'], '/\\');
 				<span class="icon-bar"></span>
 			</button>
 			<a class="navbar-brand" href="/<?php echo get_base_url($page); ?>" title="<?php echo CHtml::encode(Yii::app()->name) ?>">
-				<img src="/images/logo.png" alt="<?php echo CHtml::encode(Yii::app()->name) ?>" width="72" height="32">
+				<img src="images/logo.png" alt="<?php echo CHtml::encode(Yii::app()->name) ?>" width="72" height="32">
 			</a>
 		</div>
 		<div class="navbar-collapse collapse">

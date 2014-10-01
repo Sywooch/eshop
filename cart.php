@@ -138,7 +138,7 @@ Yii::app()->db->createCommand("DELETE FROM cart WHERE created < DATE_SUB(NOW(), 
 	</div>
 	<br><br>
 	<?php } ?>
-	<div class="alert alert-info"<?php echo !empty($rows) ? ' style="display: none;"' : ''?>>В Вашей корзине пока пусто. Перейдите, пожалуйста, в <a href="/" style="white-space: nowrap;"><span class="glyphicon glyphicon-link"></span> каталог</a> для выбора футболки, которая Вам понравится и положите ее в Вашу корзину нажав на кнопку «Положить в корзину» рядом с каждой футболкой.</div>
+	<div class="alert alert-info"<?php echo !empty($rows) ? ' style="display: none;"' : ''?>>В Вашей корзине пока пусто. Перейдите, пожалуйста, в <a href="/<?php echo get_base_url($page); ?>" style="white-space: nowrap;"><span class="glyphicon glyphicon-link"></span> каталог</a> для выбора футболки, которая Вам понравится и положите ее в Вашу корзину нажав на кнопку «Положить в корзину» рядом с каждой футболкой.</div>
 </div>
 <!-- Modal cart -->
 <div class="modal fade" id="modalCartItem" tabindex="-1" role="dialog" aria-labelledby="modalCartItemLabel" aria-hidden="true">

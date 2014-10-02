@@ -69,7 +69,7 @@ $page = trim($_SERVER['PHP_SELF'], '/\\');
 					</ul>
 				</li>
 			</ul>
-			<span class="pull-right">Тел.: <?php echo Yii::app()->params['phone']; ?></span>
+			<span class="pull-right">Телефон: <?php echo Yii::app()->params['phone']; ?></span>
 		</div><!--/.nav-collapse -->
 	</div>
 </div>

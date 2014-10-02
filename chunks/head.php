@@ -1,7 +1,7 @@
 <?php 
-require_once 'settings.php';
+require_once 'config/settings.php';
 require_once FRAMEWORK_PATH;
-Yii::createWebApplication('config.php');
+Yii::createWebApplication('config/config.php');
 require_once 'snippets/helper.php';
 ?>
 <!DOCTYPE html>

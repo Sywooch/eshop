@@ -1,7 +1,7 @@
 <?php
 return array(
 	'language'=>'ru',
-	'basePath'=>dirname(__FILE__),
+	'basePath'=>dirname(dirname(__FILE__)),
 	'name'=>'eshop',
 	'components'=>array(
 		'db'=>array(

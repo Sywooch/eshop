@@ -42,7 +42,7 @@ $(document).ready(function() {
 		var amount = $.trim($('#cart-item-amount').val());
 		$.post(url, {
 			'action': 'b', 
-			'dress_id': parseInt($('#dress_id').val()),
+			'item_id': parseInt($('#item_id').val()),
 			'size': $.trim($('#cart-item-size option:selected').val()),
 			'amount': amount,
 			'inscription': $.trim($('#cart-item-inscription').val()),
@@ -71,10 +71,10 @@ $(document).ready(function() {
 	});
 	
 	// Push to cart
-	$('button[id^="dress-id-"]').click(function() {
+	$('button[id^="item-id-"]').click(function() {
 		$.post(url, {
 			'action': 'c', 
-			'dress_id': getId($(this))
+			'item_id': getId($(this))
 		}, function(data, textStatus, jqXHR) {
 			if(textStatus == 'success' && data['status'] == 1) {
 				$('#modalCart .alert-success').html('Вы положили <span class="badge">1</span> футболку в Вашу корзину.');
@@ -96,7 +96,7 @@ $(document).ready(function() {
 			var id = $(this).parents('.modal-content').find('img').attr('src').match(/\?(\d+)$/)[1];
 			$.post(url, {
 				'action': 'c', 
-				'dress_id': id
+				'item_id': id
 			}, function(data, textStatus, jqXHR) {
 				if(textStatus == 'success' && data['status'] == 1) {
 					$('#modalCart .alert-success').html('Вы положили <span class="badge">1</span> футболку в Вашу корзину.');

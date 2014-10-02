@@ -1,7 +1,7 @@
 <?php
 require_once 'chunks/head.php';
 require_once 'chunks/menu.php';
-$bestsellers = Yii::app()->db->createCommand("SELECT * FROM dress WHERE bestsellers <> 0 ORDER BY id LIMIT 20")->queryAll();
+$bestsellers = Yii::app()->db->createCommand("SELECT * FROM item WHERE bestsellers <> 0 ORDER BY id LIMIT 20")->queryAll();
 $hash = get_hash_for_sql();
 ?>
 <div class="container">
@@ -40,7 +40,7 @@ $hash = get_hash_for_sql();
 						<div class="carousel-caption">
 							<h4><?php echo CHtml::encode($row['name']) ?></h4>
 							<h4><?php echo price_format($row['price']) ?> руб.</h4>
-							<button type="button" class="btn btn-sm btn-primary" id="dress-id-a-<?php echo $row['id'] ?>">
+							<button type="button" class="btn btn-sm btn-primary" id="item-id-a-<?php echo $row['id'] ?>">
 								<span class="glyphicon glyphicon-shopping-cart"></span> Положить в корзину
 							</button>
 						</div>
@@ -64,9 +64,9 @@ $hash = get_hash_for_sql();
 			<p><a href="#shop" class="dashed-link">Перейти в основной каталог</a></p>
 			<p><span class="label label-info">Внимание!</span> Вы можете заказать <a href="vip.php"><span class="glyphicon glyphicon-link"></span> свой вариант</a> дизайна футболки <span style="white-space: nowrap;">с предоплатой <em>50%</em>.</span></p>
 			<hr>
-			<h3>Хиты продаж: &nbsp; <span class="chevron-left" title="Предыдущая">&laquo;</span> <span id="dress_name"><?php echo CHtml::encode(Yii::app()->db->createCommand("SELECT name FROM dress WHERE bestsellers <> 0 ORDER BY id LIMIT 1")->queryScalar()) ?></span>  <span class="chevron-right" title="Следующая">&raquo;</span></h3>
+			<h3>Хиты продаж: &nbsp; <span class="chevron-left" title="Предыдущая">&laquo;</span> <span id="item_name"><?php echo CHtml::encode(Yii::app()->db->createCommand("SELECT name FROM item WHERE bestsellers <> 0 ORDER BY id LIMIT 1")->queryScalar()) ?></span>  <span class="chevron-right" title="Следующая">&raquo;</span></h3>
 			<form class="form-inline" role="form">
-				<input type="hidden" id="dress_id" value="1">
+				<input type="hidden" id="item_id" value="1">
 				<div class="form-group">
 					<select class="form-control" id="cart-item-size">
 						<option>--- Выберите размер ---</option>
@@ -127,7 +127,7 @@ $hash = get_hash_for_sql();
 		<hr class="featurette-divider">
 		<div id="links">
 			<?php 
-			$shop = Yii::app()->db->createCommand("SELECT * FROM dress WHERE bestsellers = 0 ORDER BY id")->queryAll();
+			$shop = Yii::app()->db->createCommand("SELECT * FROM item WHERE bestsellers = 0 ORDER BY id")->queryAll();
 			foreach ($shop as $k => $row) { ?>
 			<a href="images/gallery/<?php echo $row['id'] ?>.png?<?php echo $row['id'] ?>" title="Артикул: <?php echo CHtml::encode($row['name']) ?>. Цена: <?php echo price_format($row['price']) ?> руб." data-gallery class="zoom-in">
 		        <img src="images/gallery/thumbs/<?php echo $row['id'] ?>.png" alt="<?php echo CHtml::encode($row['name']) ?>">

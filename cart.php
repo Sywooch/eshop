@@ -19,7 +19,7 @@ Yii::app()->db->createCommand("DELETE FROM cart WHERE created < DATE_SUB(NOW(), 
 	<?php
 	$rows = Yii::app()->db->createCommand("
 				SELECT *, cart.id as id FROM cart 
-					INNER JOIN dress ON (cart.dress_id = dress.id)
+					INNER JOIN item ON (cart.item_id = item.id)
 				WHERE hash = {$hash}
 				ORDER BY cart.id")->queryAll();
 	if(!empty($rows)) { ?>
@@ -57,11 +57,11 @@ Yii::app()->db->createCommand("DELETE FROM cart WHERE created < DATE_SUB(NOW(), 
 					?>
 					<tr>
 						<td>
-							<a href="images/gallery/<?php echo $row['dress_id'] ?>.png" class="dress-image zoom-in" title="<?php echo CHtml::encode($row['name']) ?>">
-								<img class="img-responsive" src="images/gallery/thumbs/<?php echo $row['dress_id'] ?>.png" alt="" width="150"><span class="glyphicon glyphicon-zoom-in"></span>
+							<a href="images/gallery/<?php echo $row['item_id'] ?>.png" class="item-image zoom-in" title="<?php echo CHtml::encode($row['name']) ?>">
+								<img class="img-responsive" src="images/gallery/thumbs/<?php echo $row['item_id'] ?>.png" alt="" width="150"><span class="glyphicon glyphicon-zoom-in"></span>
 							</a>
 						</td>
-						<td><?php echo $row['dress_id'] ?></td>
+						<td><?php echo $row['item_id'] ?></td>
 						<td><?php echo CHtml::encode($row['name']) ?></td>
 						<td id="cart-inscription-<?php echo $row['id'] ?>">
 							<div>

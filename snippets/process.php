@@ -48,7 +48,7 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH']
 		
 		// Add to cart
 		elseif($_POST['action'] == 'b') {
-			$dress_id = (int)$_POST['dress_id'];
+			$item_id = (int)$_POST['item_id'];
 			$size = $_POST['size'];
 			$amount = (int)$_POST['amount'];
 			$inscription = trim($_POST['inscription']);
@@ -62,11 +62,11 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH']
 			if(empty($response)) {
 				$result = Yii::app()->db->createCommand("
 			 		INSERT INTO cart (
-			 			hash, dress_id, size, amount, inscription, printpromolink, created
+			 			hash, item_id, size, amount, inscription, printpromolink, created
 			 		)
 			 		VALUES (
 			 			{$hash},
-						{$dress_id},
+						{$item_id},
 			 			" . Yii::app()->db->quoteValue($size) . ",
 			 			{$amount},
 			 			" . Yii::app()->db->quoteValue($inscription) . ",
@@ -84,12 +84,12 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH']
 		
 		// Push to cart
 		elseif($_POST['action'] == 'c') {
-			$dress_id = (int)$_POST['dress_id'];
+			$item_id = (int)$_POST['item_id'];
 			$result = Yii::app()->db->createCommand("
-					INSERT INTO cart (hash, dress_id, created)
+					INSERT INTO cart (hash, item_id, created)
 			 		VALUES (
 			 			{$hash},
-			 			{$dress_id},
+			 			{$item_id},
 			 			" . new CDbExpression('NOW()') . "
 			 		)" // ON DUPLICATE KEY UPDATE
 			)->execute();
@@ -111,7 +111,7 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH']
 				'sum' => (int)Yii::app()->db->createCommand("SELECT SUM(amount) FROM cart WHERE hash = {$hash}")->queryScalar(),
 				'total' => price_format(Yii::app()->db->createCommand("
 					SELECT SUM(price * amount) FROM cart 
-						INNER JOIN dress ON (cart.dress_id = dress.id)
+						INNER JOIN item ON (cart.item_id = item.id)
 					WHERE hash = {$hash}")->queryScalar()),
 			);
 		}
@@ -139,11 +139,11 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH']
 				'sum' => (int)Yii::app()->db->createCommand("SELECT SUM(amount) FROM cart WHERE hash = {$hash}")->queryScalar(),
 				'priceamount' => price_format(Yii::app()->db->createCommand("
 						SELECT price * amount FROM cart
-						INNER JOIN dress ON (cart.dress_id = dress.id)
+						INNER JOIN item ON (cart.item_id = item.id)
 						WHERE cart.id = {$id} AND hash = {$hash}")->queryScalar()),
 				'total' => price_format(Yii::app()->db->createCommand("
 						SELECT SUM(price * amount) FROM cart
-						INNER JOIN dress ON (cart.dress_id = dress.id)
+						INNER JOIN item ON (cart.item_id = item.id)
 						WHERE hash = {$hash}")->queryScalar()),
 			);
 		}

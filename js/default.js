@@ -16,8 +16,8 @@ $(document).ready(function() {
 	$('#carousel').on('slid.bs.carousel', function (e) {
 		// e.target.id // carousel ID 
 		var index = $(".active", e.target).index(); // active slide index
-		$('#dress_id').text(index + 1);
-		$('#dress_name').text($('.item:eq(' + index + ') .carousel-caption h4:first', this).text());
+		$('#item_id').text(index + 1);
+		$('#item_name').text($('.item:eq(' + index + ') .carousel-caption h4:first', this).text());
 	});
 	$('h3 span[class*="chevron-"]').click(function() {
 		$('#carousel').carousel($(this).index() == 0 ? 'prev' : 'next');
@@ -73,7 +73,7 @@ $(document).ready(function() {
 	}).on('hide.bs.collapse', function () {
 		$(this).prev().removeClass().addClass('dropup');
 	});
-	$('.dress-image').colorbox();
+	$('.item-image').colorbox();
 	$('.how-to-buy-video').colorbox({'html': 'Тест', 'width': 400, 'height': 300});
 	$('.how-to-buy-gallery').colorbox({'html': 'Тест', 'width': 400, 'height': 300});
 	$('a[href="#top"]').click(function(event) {

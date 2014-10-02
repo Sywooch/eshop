@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 01, 2014 at 12:41 PM
+-- Generation Time: Oct 02, 2014 at 11:37 AM
 -- Server version: 5.5.38
 -- PHP Version: 5.4.4-14+deb7u14
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `cart` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `hash` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
-  `dress_id` int(11) unsigned NOT NULL,
+  `item_id` int(11) unsigned NOT NULL,
   `size` enum('XS','S','M','L','XL','XXL') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'S',
   `amount` int(11) NOT NULL,
   `inscription` text COLLATE utf8_unicode_ci NOT NULL,
@@ -37,17 +37,28 @@ CREATE TABLE IF NOT EXISTS `cart` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `dress_id` (`dress_id`),
+  KEY `item_id` (`item_id`),
   KEY `hash` (`hash`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=8 ;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`id`, `hash`, `item_id`, `size`, `amount`, `inscription`, `printpromolink`, `created`, `modified`) VALUES
+(1, '78f7c031ba9c7a304ac2a23f23e54012bd4d1668', 5, 'S', 2, '', 0, '2014-10-01 13:47:37', '2014-10-01 13:47:41'),
+(2, '78f7c031ba9c7a304ac2a23f23e54012bd4d1668', 1, 'S', 7, '', 0, '2014-10-01 13:47:45', '2014-10-01 13:48:07'),
+(3, '78f7c031ba9c7a304ac2a23f23e54012bd4d1668', 2, 'S', 5, '', 0, '2014-10-01 13:47:50', '2014-10-01 13:48:06'),
+(5, '98f5bc23087c36efbd77ad4dcaf05694b88fe534', 1, 'XXL', 1, '', 0, '2014-10-02 11:15:40', '2014-10-02 11:18:40'),
+(7, '98f5bc23087c36efbd77ad4dcaf05694b88fe534', 3, 'XL', 1, '', 0, '2014-10-02 11:18:22', '2014-10-02 11:18:43');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dress`
+-- Table structure for table `item`
 --
 
-CREATE TABLE IF NOT EXISTS `dress` (
+CREATE TABLE IF NOT EXISTS `item` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `announcement` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -55,13 +66,13 @@ CREATE TABLE IF NOT EXISTS `dress` (
   `price` decimal(10,2) NOT NULL,
   `bestsellers` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=58 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=31 ;
 
 --
--- Dumping data for table `dress`
+-- Dumping data for table `item`
 --
 
-INSERT INTO `dress` (`id`, `name`, `announcement`, `description`, `price`, `bestsellers`) VALUES
+INSERT INTO `item` (`id`, `name`, `announcement`, `description`, `price`, `bestsellers`) VALUES
 (1, 'Футболка 1', 'Это футболка вашей мечты', 'На этой футболке нарисован «Персонаж 1».', 750.00, 1),
 (2, 'Футболка 2', 'Это футболка вашей мечты', 'На этой футболке нарисован «Персонаж 2».', 650.00, 1),
 (3, 'Футболка 3', 'Это футболка вашей мечты', 'На этой футболке нарисован «Персонаж 3».', 850.00, 1),
@@ -162,7 +173,7 @@ CREATE TABLE IF NOT EXISTS `promocode_hash` (
 -- Constraints for table `cart`
 --
 ALTER TABLE `cart`
-  ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`dress_id`) REFERENCES `dress` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`item_id`) REFERENCES `item` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

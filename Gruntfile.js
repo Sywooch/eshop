@@ -3,17 +3,17 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 		uglify: {
-			eshop: {
+			build: {
 				files: [{
 					expand: true,
 					cwd: 'js/',
-					src: '**/*.js', 
+					src: ['**/*.js','!**/*.min.js'], 
 					dest: 'js/',
 					ext: '.min.js'
 				},{
 					expand: true,
 					cwd: 'chunks/',
-					src: '**/*.js', 
+					src: ['**/*.js','!**/*.min.js'], 
 					dest: 'chunks/',
 					ext: '.min.js'
 				}]

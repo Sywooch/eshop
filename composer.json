@@ -1,0 +1,11 @@
+{
+	"name": "eshop",
+	"description": "Very simple eshop. As an example - the catalog of T-shirts.",
+	"keywords": ["eshop"],
+	"license": "MIT",
+	"type": "project",
+	"require": {
+		"yiisoft/yii": "dev-master"
+	},
+	"minimum-stability": "stable"
+}

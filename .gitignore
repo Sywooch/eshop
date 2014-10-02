@@ -1,2 +1,7 @@
 config.php
 settings.php
+node_modules
+bower_components
+/vendor
+composer.phar
+composer.lock

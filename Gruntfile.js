@@ -35,13 +35,17 @@ module.exports = function(grunt) {
 					ext: '.min.css'
 				}]
 			}
+		},
+		jshint: {
+			all: ['Gruntfile.js', 'js/default.js', 'js/rpc.js', 'js/ya-share.js']
 		}
 	});
 	
 	// Load the plugin that provides the "uglify" task.
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
+	grunt.loadNpmTasks('grunt-contrib-jshint');
 	
 	// Default task(s).
-	grunt.registerTask('default', ['uglify', 'cssmin']);
+	grunt.registerTask('default', ['uglify', 'cssmin', 'jshint']);
 };

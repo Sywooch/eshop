@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	$('.carousel-control-extra').click(function() {
 		$('.carousel-control-extra').toggle();
-		$('#carousel').carousel($(this).index() == 0 ? 'pause' : 'cycle');
+		$('#carousel').carousel($(this).index() === 0 ? 'pause' : 'cycle');
 	});
 	$('#cart-item-amount').bind('focus change click', function() {
 		$('.carousel-control-extra:eq(0)').hide();
@@ -20,7 +20,7 @@ $(document).ready(function() {
 		$('#item_name').text($('.item:eq(' + index + ') .carousel-caption h4:first', this).text());
 	});
 	$('h3 span[class*="chevron-"]').click(function() {
-		$('#carousel').carousel($(this).index() == 0 ? 'prev' : 'next');
+		$('#carousel').carousel($(this).index() === 0 ? 'prev' : 'next');
 	});
 	$('.btn-cart').on('click', function() {
 		window.location.href = 'cart.php';

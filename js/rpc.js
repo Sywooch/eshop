@@ -1,3 +1,4 @@
+/*jshint -W069 */
 $(document).ready(function() {
 	var url = 'snippets/process.php';
 	
@@ -180,7 +181,7 @@ $(document).ready(function() {
 				}
 			},
 			'json');
-		})
+		});
 
 	});
 	

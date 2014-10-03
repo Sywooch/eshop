@@ -21,11 +21,19 @@ module.exports = function(grunt) {
 		},
 		cssmin: {
 			minify: {
-				expand: true,
-				cwd: 'css/',
-				src: ['*.css', '!*.min.css'],
-				dest: 'css/',
-				ext: '.min.css'
+				files: [{
+					expand: true,
+					cwd: 'css/',
+					src: ['*.css','!*.min.css'],
+					dest: 'css/',
+					ext: '.min.css'
+				},{
+					expand: true,
+					cwd: 'colorbox/',
+					src: ['colorbox.css','!colorbox.min.css'], 
+					dest: 'colorbox/',
+					ext: '.min.css'
+				}]
 			}
 		}
 	});

@@ -25,7 +25,7 @@ require_once 'snippets/helper.php';
 		<link href="css/default.min.css" rel="stylesheet">
 		<script type="text/javascript" src="colorbox/jquery.colorbox-min.js"></script>
 		<script type="text/javascript" src="colorbox/i18n/jquery.colorbox-ru.js"></script>
-		<link rel="stylesheet" type="text/css" href="colorbox/colorbox.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="colorbox/colorbox.min.css" media="screen" />
 		<link rel="stylesheet" href="blueimp/css/blueimp-gallery.min.css">
 		<link rel="stylesheet" href="blueimp-bootstrap/css/bootstrap-image-gallery.min.css">
 		<script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>

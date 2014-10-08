@@ -2,6 +2,9 @@
 $title = 'Заказать свой вариант дизайна футболки';
 require_once 'chunks/head.php';
 require_once 'chunks/menu.php';
+Yii::import('application.snippets.models.VipForm');
+$model = new VipForm;
+$model->setAttributes($_POST);
 ?>
 <script type="text/javascript">
 <?php require_once 'chunks/crypt.min.js' ?>
@@ -10,7 +13,7 @@ require_once 'chunks/menu.php';
 	<div class="page-header">
 		<h1>Заказать свой вариант дизайна футболки </h1>
 	</div>
-	<?php if(!isset($_POST['vip'])) { ?>
+	<?php if(empty($_POST) or !$model->validate()) { ?>
 	<p>При заказе своего варианта дизайна необходимо внести предоплату в размере <em>50%</em> от стоимости футболки.</p>
 	<p>Вы можете заказать свой вариант дизайна следующими способами:</p>
 	<ol>

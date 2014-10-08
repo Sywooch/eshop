@@ -13,12 +13,6 @@
 		<priority>0.5</priority>
 	</url>
 	<url>
-		<loc>http://eshop/order.php</loc>
-		<lastmod>2014-06-17 12:56:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.5</priority>
-	</url>
-	<url>
 		<loc>http://eshop/how-to-buy.php</loc>
 		<lastmod>2014-06-17 12:56:00</lastmod>
 		<changefreq>monthly</changefreq>

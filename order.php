@@ -1,7 +1,16 @@
 <?php
 $title = 'Оформление заказа';
+ob_start();
 require_once 'chunks/head.php';
 require_once 'chunks/menu.php';
+$hash = get_hash_for_sql();
+if(Yii::app()->db->createCommand("SELECT COUNT(id) FROM cart WHERE hash = {$hash}")->queryScalar() == 0) {
+	Yii::app()->request->redirect('/' . get_base_url($page));
+}
+ob_end_flush();
+Yii::import('application.snippets.models.OrderForm');
+$model = new OrderForm;
+$model->setAttributes($_POST);
 ?>
 <div class="container">
 	<div class="page-header">
@@ -14,7 +23,7 @@ require_once 'chunks/menu.php';
 			</div>
 		</div>
 	</div>
-	<?php if(!isset($_POST['order'])) { ?>
+	<?php if(empty($_POST) or !$model->validate()) { ?>
 	<p>Итак, уважаемый Покупатель, вы проделали следующие действия:</p>
 	<ul>
 		<li>Заполнили <a href="cart.php">Вашу корзину</a> футболками от  <?php echo CHtml::encode(Yii::app()->name); ?> и при необходимости сверились с <a href="help.php">таблицей размеров</a>;</li>
@@ -51,7 +60,9 @@ require_once 'chunks/menu.php';
 			<button type="submit" class="btn btn-info"><span class="glyphicon glyphicon-heart"></span> Отправить заказ</button>
 		</form>
 	</div>
-	<?php } else { ?>
+	<?php } else {  
+	Yii::app()->db->createCommand("DELETE FROM cart WHERE hash = {$hash}")->execute();
+	?>
 	<div class="alert alert-success">Ваш заказ успешно отправлен. Спасибо, что заказали футболки от  <?php echo CHtml::encode(Yii::app()->name); ?>!</div>
 	<?php } ?>
 </div>

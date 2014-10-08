@@ -32,7 +32,7 @@ require_once 'snippets/helper.php';
 		<script type="text/javascript" src="/js/ya-share.min.js"></script>
 		<script type="text/javascript" src="//vk.com/js/api/openapi.js?113"></script>
 		<script type="text/javascript">
-		  VK.init({apiId: <?php echo Yii::app()->params['VK.init.apiId']; ?>, onlyWidgets: true});
+		VK.init({apiId: <?php echo Yii::app()->params['VK.init.apiId']; ?>, onlyWidgets: true});
 		</script>
 	</head>
 		<body>

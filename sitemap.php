@@ -8,9 +8,8 @@ require_once 'chunks/menu.php';
 		<h1>Карта сайта</h1>
 	</div>
 	<ul>
-		<li><a href="/">Каталог</a></li>
+		<li><a href="/<?php echo get_base_url($page); ?>">Каталог</a></li>
 		<li><a href="cart.php">Корзина</a></li>
-		<li><a href="order.php">Оформление заказа</a></li>
 		<li><a href="how-to-buy.php">Где и как купить футболку</a></li>
 		<li><a href="shipping.php">Условия и способы доставки</a></li>
 		<li><a href="vip.php">Заказать свой вариант дизайна</a></li>

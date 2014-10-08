@@ -3,7 +3,6 @@ $title = 'Оформление заказа';
 ob_start();
 require_once 'chunks/head.php';
 require_once 'chunks/menu.php';
-$hash = get_hash_for_sql();
 if(Yii::app()->db->createCommand("SELECT COUNT(id) FROM cart WHERE hash = {$hash}")->queryScalar() == 0) {
 	Yii::app()->request->redirect('/' . get_base_url($page));
 }
@@ -34,28 +33,34 @@ $model->setAttributes($_POST);
 	<p>Вам осталось сделать один небольшой шаг на пути Вашей покупки &#8211; расскажите, пожалуйста, немного о себе:</p>
 	<div class="well">
 		<h3 class="text-info">Форма для заполнения Ваших контактных данных и ФИО</h3>
+		<?php 
+		if(!empty($_POST)) {
+			$errors = $model->getErrors();
+			foreach ($errors as $k => $error) {
+				if($k == 'nospam') continue; 
+				foreach ($error as $item) { ?>
+					<p class="text-danger"><?php echo CHtml::encode($item) ?></p>
+				<?php }
+			}
+		}
+		?>
 		<form role="form" action="" method="post">
-	 		<input type="hidden" name="nospam:blank" value="" />
-	 		<input type="hidden" name="order" value="1" />
-			<div class="form-group">
+	 		<input type="hidden" name="nospam" value="">
+			<div class="form-group<?php echo isset($errors['fio']) ? ' has-error' : '' ?>">
 				<label class="control-label" for="controlFio">ФИО<small></small></label>
 				<input type="text" class="form-control" name="fio" id="controlFio" value="">
 			</div>
-			<div class="form-group">
+			<div class="form-group<?php echo isset($errors['phone']) ? ' has-error' : '' ?>">
 				<label class="control-label" for="controlPhone">Телефон<small></small></label>
 				<input type="tel" class="form-control" name="phone" id="controlPhone" value="">
 			</div>
-			<div class="form-group">
+			<div class="form-group<?php echo isset($errors['email']) ? ' has-error' : '' ?>">
 				<label class="control-label" for="controlEmail">Email<small></small></label>
 				<input type="email" class="form-control" name="email" id="controlEmail" value="">
 			</div>
-			<div class="form-group">
+			<div class="form-group<?php echo isset($errors['text']) ? ' has-error' : '' ?>">
 				<label class="control-label" for="controlText">Комментарий<small></small></label>
 				<textarea class="form-control" name="text" id="controlText" rows="4"></textarea>
-			</div>
-			<div class="form-group">
-				<label class="control-label" for="controlMath"><small>Защита от спама, напишите сколько будет: 27 плюс 34?</small></label>
-				<input type="text" class="form-control" name="math:required" id="controlMath" value="">
 			</div>
 			<button type="submit" class="btn btn-info"><span class="glyphicon glyphicon-heart"></span> Отправить заказ</button>
 		</form>

@@ -2,7 +2,6 @@
 $title = 'Корзина';
 require_once 'chunks/head.php';
 require_once 'chunks/menu.php';
-$hash = get_hash_for_sql();
 Yii::app()->db->createCommand("DELETE FROM cart WHERE created < DATE_SUB(NOW(), INTERVAL 2 DAY)")->execute();
 ?>
 <div class="container">

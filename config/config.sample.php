@@ -12,7 +12,6 @@ return array(
 			'charset' => 'utf8',
 		),
 		'session'=>array(
-			'autoStart' => true,
 			'timeout' => 3600 * 24
 		)
 	),

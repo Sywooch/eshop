@@ -23,28 +23,39 @@ $model->setAttributes($_POST);
 	</ol>
 	<div class="well">
 		<h3 class="text-info">Форма заказа своего варианта дизайна футболки</h3>
+		<?php 
+		if(!empty($_POST)) {
+			$errors = $model->getErrors();
+			foreach ($errors as $k => $error) {
+				if($k == 'nospam') continue; 
+				foreach ($error as $item) { ?>
+					<p class="text-danger"><?php echo CHtml::encode($item) ?></p>
+				<?php }
+			}
+		}
+		$math_init = $model->mathInit();
+		?>
 		<form role="form" action="" method="post">
-			<input type="hidden" name="nospam:blank" value="" />
-			<input type="hidden" name="vip" value="1" />
-  			<div class="form-group">
+			<input type="hidden" name="nospam" value="">
+  			<div class="form-group<?php echo isset($errors['fio']) ? ' has-error' : '' ?>">
   				<label class="control-label" for="controlFio">ФИО<small></small></label>
 				<input type="text" class="form-control" name="fio" id="controlFio" value="">
 			</div>
-			<div class="form-group">
+			<div class="form-group<?php echo isset($errors['phone']) ? ' has-error' : '' ?>">
 				<label class="control-label" for="controlPhone">Телефон<small></small></label>
 				<input type="tel" class="form-control" name="phone" id="controlPhone" value="">
 			</div>
-			<div class="form-group">
+			<div class="form-group<?php echo isset($errors['email']) ? ' has-error' : '' ?>">
 				<label class="control-label" for="controlEmail">Email<small></small></label>
 				<input type="email" class="form-control" name="email" id="controlEmail" value="">
 			</div>
-			<div class="form-group">
+			<div class="form-group<?php echo isset($errors['text']) ? ' has-error' : '' ?>">
 				<label class="control-label" for="controlText">Сообщение<small></small></label>
 				<textarea class="form-control" name="text" id="controlText" rows="4"></textarea>
 			</div>
-			<div class="form-group">
-				<label class="control-label" for="controlMath"><small>Защита от спама, напишите сколько будет: 52 плюс 87?</small></label>
-				<input type="text" class="form-control" name="math:required" id="controlMath" value="">
+			<div class="form-group<?php echo isset($errors['math']) ? ' has-error' : '' ?>">
+				<label class="control-label" for="controlMath"><small>Защита от спама, напишите сколько будет: <?php echo $math_init['op1'] ?> <?php echo $math_init['operator'] ? 'плюс' : 'минус' ?> <?php echo $math_init['op2'] ?>?</small></label>
+				<input type="number" class="form-control" name="math" id="controlMath" value="">
 			</div>
 			<button type="submit" class="btn btn-default">Отправить</button>
 		</form>

@@ -53,9 +53,9 @@ $model->setAttributes($_POST);
 				<label class="control-label" for="controlText">Сообщение<small></small></label>
 				<textarea class="form-control" name="text" id="controlText" rows="4"></textarea>
 			</div>
-			<div class="form-group">
+			<div class="form-group<?php echo isset($errors['math']) ? ' has-error' : '' ?>">
 				<label class="control-label" for="controlMath"><small>Защита от спама, напишите сколько будет: <?php echo $math_init['op1'] ?> <?php echo $math_init['operator'] ? 'плюс' : 'минус' ?> <?php echo $math_init['op2'] ?>?</small></label>
-				<input type="text" class="form-control" name="math" id="controlMath" value="">
+				<input type="number" class="form-control" name="math" id="controlMath" value="">
 			</div>
 			<button type="submit" class="btn btn-default">Отправить</button>
 		</form>

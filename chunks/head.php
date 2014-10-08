@@ -3,6 +3,7 @@ require_once 'config/settings.php';
 require_once FRAMEWORK_PATH;
 Yii::createWebApplication('config/config.php');
 require_once 'snippets/helper.php';
+$hash = get_hash_for_sql();
 ?>
 <!DOCTYPE html>
 <html lang="ru">

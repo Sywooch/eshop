@@ -2,7 +2,6 @@
 require_once 'chunks/head.php';
 require_once 'chunks/menu.php';
 $bestsellers = Yii::app()->db->createCommand("SELECT * FROM item WHERE bestsellers <> 0 ORDER BY id LIMIT 20")->queryAll();
-$hash = get_hash_for_sql();
 ?>
 <div class="container">
 	<div class="row">

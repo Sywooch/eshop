@@ -131,6 +131,9 @@ h1, h2 {
 	text-decoration: none;
 	opacity: 0.7;
 }
+input[name="math"] {
+	width: 100px;
+}
 #footer {
 	background-image: -webkit-linear-gradient(top, #B7ADD2 0%, #613A67 100%);
 	background-image:         linear-gradient(to bottom, #B7ADD2 0%, #613A67 100%);

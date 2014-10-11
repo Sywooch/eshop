@@ -3,9 +3,7 @@ $title = 'Где и как купить футболку';
 require_once 'chunks/head.php';
 require_once 'chunks/menu.php';
 ?>
-<script type="text/javascript">
-<?php require_once 'chunks/crypt.min.js' ?>
-</script>
+<script type="text/javascript" src="js/crypt.min.js"></script>
 <div class="container">
 	<div class="page-header">
 		<h1>Где и как купить футболку</h1>

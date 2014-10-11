@@ -30,7 +30,7 @@ $hash = get_hash_for_sql();
 		<link rel="stylesheet" href="blueimp/css/blueimp-gallery.min.css">
 		<link rel="stylesheet" href="blueimp-bootstrap/css/bootstrap-image-gallery.min.css">
 		<script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>
-		<script type="text/javascript" src="/js/ya-share.min.js"></script>
+		<script type="text/javascript" src="js/ya-share.min.js"></script>
 		<script type="text/javascript" src="//vk.com/js/api/openapi.js?113"></script>
 		<script type="text/javascript">
 		VK.init({apiId: <?php echo Yii::app()->params['VK.init.apiId']; ?>, onlyWidgets: true});

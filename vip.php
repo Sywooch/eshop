@@ -6,9 +6,7 @@ Yii::import('application.snippets.models.VipForm');
 $model = new VipForm;
 $model->setAttributes($_POST);
 ?>
-<script type="text/javascript">
-<?php require_once 'chunks/crypt.min.js' ?>
-</script>
+<script type="text/javascript" src="js/crypt.min.js"></script>
 <div class="container">
 	<div class="page-header">
 		<h1>Заказать свой вариант дизайна футболки </h1>

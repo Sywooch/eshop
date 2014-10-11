@@ -2,11 +2,11 @@
 	"name": "earthperson/eshop",
 	"description": "Very simple eshop. As an example - the catalog of T-shirts.",
 	"keywords": ["eshop"],
+	"homepage": "https://github.com/earthperson/eshop",
 	"license": "MIT",
 	"type": "project",
 	"require": {
 		"yiisoft/yii": "dev-master",
 		"phpmailer/phpmailer": "dev-master"
-	},
-	"minimum-stability": "stable"
+	}
 }

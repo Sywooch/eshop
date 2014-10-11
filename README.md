@@ -4,6 +4,8 @@
 
 Very simple eshop. As an example - the catalog of T-shirts.
 
+*phpMyAdmin or similar tool and a text editor as the Dashboard, a [payment system](https://money.yandex.ru/get/) or bank details as tools to accept payments.*
+
 ## Server Requirements
 Web server with PHP, [Yii Framework components](https://github.com/yiisoft/yii) and database that is supported by Yii Framework.
 [1]: images/logo.png

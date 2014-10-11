@@ -110,6 +110,7 @@ CREATE TABLE IF NOT EXISTS `order` (
   `comment` text COLLATE utf8_unicode_ci NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
+  `status` enum('NOT_PROCESSED','IN_PROCESSING','COMPLETED') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'NOT_PROCESSED',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 

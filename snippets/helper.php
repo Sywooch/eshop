@@ -17,3 +17,6 @@ function get_hash_for_sql() {
 function get_base_url($page) {
 	return substr($page, 0, strrpos($page, '/'));
 }
+function is_current($page, $needle) {
+	return strrpos($page, $needle) !== false;
+}

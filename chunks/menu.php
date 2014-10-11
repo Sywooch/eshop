@@ -20,7 +20,7 @@ $page = trim($_SERVER['PHP_SELF'], '/\\');
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-home"></span> Каталог <b class="caret"></b></a>
 					<ul class="dropdown-menu">
-						<?php if($page == 'index.php') { ?>
+						<?php if(is_current($page, 'index')) { ?>
 							<li><a href="#top">Главная страница</a></li>
 							<li><a href="#bestsellers">Хиты продаж</a></li>
 							<li><a href="#shop">Основной каталог</a></li>
@@ -31,38 +31,38 @@ $page = trim($_SERVER['PHP_SELF'], '/\\');
 						<?php } ?>
 					</ul>
 				</li>
-				<?php if($page != 'cart.php') { ?>
+				<?php if(!is_current($page, 'cart')) { ?>
 				<li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Корзина</a></li>
 				<?php } ?>
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Навигация по сайту <b class="caret"></b></a>
 					<ul class="dropdown-menu">
-						<?php if($page != 'index.php') { ?>
+						<?php if(!is_current($page, 'index')) { ?>
 						<li><a href="/<?php echo get_base_url($page); ?>"><span class="glyphicon glyphicon-home"></span> Главная страница</a></li>
 						<li><a href="index.php#bestsellers">Хиты продаж</a></li>
 						<li><a href="index.php#shop">Основной каталог</a></li>
 						<?php } else { ?>
 						<li><a href="#bestsellers">Хиты продаж</a></li>
 						<li><a href="#shop">Основной каталог</a></li>
-						<?php } if($page != 'cart.php') { ?>
+						<?php } if(!is_current($page, 'cart')) { ?>
 						<li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Корзина</a></li>
-						<?php } if($page != 'how-to-buy.php') { ?>
+						<?php } if(!is_current($page, 'how-to-buy')) { ?>
 						<li><a href="how-to-buy.php">Где и как купить футболку</a></li>
-						<?php } if($page != 'shipping.php') { ?>
+						<?php } if(!is_current($page, 'shipping')) { ?>
 						<li><a href="shipping.php">Условия и способы доставки</a></li>
-						<?php } if($page != 'vip.php') { ?>
+						<?php } if(!is_current($page, 'vip')) { ?>
 						<li><a href="vip.php">Заказать свой вариант дизайна</a></li>
-						<?php } if($page != 'payment.php') { ?>
+						<?php } if(!is_current($page, 'payment')) { ?>
 						<li><a href="payment.php">Способы оплаты</a></li>
-						<?php } if($page != 'help.php') { ?>
+						<?php } if(!is_current($page, 'help')) { ?>
 						<li><a href="help.php"><span class="glyphicon glyphicon-flag"></span> Таблицы размеров футболок</a></li>
 						<?php } ?>
 						<li class="divider"></li>
-						<?php if($page != 'about.php') { ?>
+						<?php if(!is_current($page, 'about')) { ?>
 						<li><a href="about.php">О компании</a></li>
 						<?php } ?>
 						<li><a href="<?php echo Yii::app()->params['VK.group']; ?>" target="_blank">Группа ВКонтакте</a></li>
-						<?php if($page != 'sitemap.php') { ?>
+						<?php if(!is_current($page, 'sitemap')) { ?>
 						<li class="divider"></li>
 						<li><a href="sitemap.php">Карта сайта</a></li>
 						<?php } ?>

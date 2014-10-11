@@ -10,6 +10,7 @@ ob_end_flush();
 Yii::import('application.snippets.models.OrderForm');
 $model = new OrderForm;
 $model->setAttributes($_POST);
+$validate = $model->validate();
 ?>
 <div class="container">
 	<div class="page-header">
@@ -18,11 +19,15 @@ $model->setAttributes($_POST);
 				<h1>Оформление заказа</h1>
 			</div>
 			<div class="col-md-2">
+				<?php if(empty($_POST) or !$validate) { ?>
 				<a href="cart.php" class="pull-right">&laquo; Вернуться в корзину</a>
+				<?php } else { ?>
+				<a href="index.php" class="pull-right">&laquo; Вернуться в каталог</a>
+				<?php } ?>
 			</div>
 		</div>
 	</div>
-	<?php if(empty($_POST) or !$model->validate()) { ?>
+	<?php if(empty($_POST) or !$validate) { ?>
 	<p>Итак, уважаемый Покупатель, вы проделали следующие действия:</p>
 	<ul>
 		<li>Заполнили <a href="cart.php">Вашу корзину</a> футболками от  <?php echo CHtml::encode(Yii::app()->name); ?> и при необходимости сверились с <a href="help.php">таблицей размеров</a>;</li>

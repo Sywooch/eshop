@@ -66,9 +66,9 @@ $model->setAttributes($_POST);
 		</form>
 	</div>
 	<?php } else {  
-	Yii::app()->db->createCommand("DELETE FROM cart WHERE hash = {$hash}")->execute();
+		require_once 'snippets/order.php';
 	?>
-	<div class="alert alert-success">Ваш заказ успешно отправлен. Спасибо, что заказали футболки от  <?php echo CHtml::encode(Yii::app()->name); ?>!</div>
+	<div class="alert alert-success">Ваш заказ №<?php echo $order_id ?> успешно отправлен. Спасибо, что заказали футболки от  <?php echo CHtml::encode(Yii::app()->name); ?>!</div>
 	<?php } ?>
 </div>
 <?php require_once 'chunks/footer.php' ?>

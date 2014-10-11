@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 11, 2014 at 01:36 PM
+-- Generation Time: Oct 11, 2014 at 02:52 PM
 -- Server version: 5.5.38
 -- PHP Version: 5.4.4-14+deb7u14
 
@@ -104,10 +104,12 @@ INSERT INTO `item` (`id`, `name`, `announcement`, `description`, `price`, `bests
 DROP TABLE IF EXISTS `order`;
 CREATE TABLE IF NOT EXISTS `order` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `fio` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `phone` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `comment` text COLLATE utf8_unicode_ci NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
@@ -126,8 +128,6 @@ CREATE TABLE IF NOT EXISTS `order_items` (
   `amount` int(11) NOT NULL,
   `inscription` text COLLATE utf8_unicode_ci NOT NULL,
   `printpromolink` tinyint(1) NOT NULL DEFAULT '0',
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `order_items_ibfk_1` (`order_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;

@@ -15,5 +15,8 @@ Web server with PHP, [Yii Framework components](https://github.com/yiisoft/yii) 
 
 1. eshop is available on [Packagist](https://packagist.org/packages/earthperson/eshop).
 2. It can be installed by running
-
+        
         $ composer create-project earthperson/eshop your-project-name --prefer-dist
+        
+3. Then look at the `config/`
+        

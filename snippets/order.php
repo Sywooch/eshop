@@ -26,12 +26,13 @@ try
 	
 	$command = $connection->createCommand("
 		INSERT INTO order_items (
-			order_id, item_id, size, amount, inscription, printpromolink
+			order_id, item_id, name, announcement, description, price, size, amount, inscription, printpromolink
 		)
 		SELECT
-			{$order_id}, item_id, size, amount, inscription, printpromolink
+			{$order_id}, item_id, name, announcement, description, price, size, amount, inscription, printpromolink
 		FROM
-			cart
+			cart INNER JOIN
+				item ON (cart.item_id = item.id)
 		WHERE
 			hash = {$hash}
 	")->execute();

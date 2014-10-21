@@ -1,0 +1,8 @@
+config.php
+settings.php
+sitemap.xml
+node_modules
+bower_components
+/vendor
+composer.phar
+composer.lock

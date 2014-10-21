@@ -1,6 +1,6 @@
 <?php 
 function get_size_array() {
-	return array('XS', 'S', 'M', 'L', 'XL', 'XXL');
+	return ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
 }
 function price_format($price) {
 	return number_format($price, 2, ',', ' ');

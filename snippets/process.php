@@ -34,14 +34,14 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH']
 		// Promocode
 		if($_POST['action'] == 'a') {
 			$promocode = trim($_POST['promocode']);
-			$response = array('status' => 0);
+			$response = ['status' => 0];
 			if($promocode != '') {
 				if(Yii::app()->db->createCommand("UPDATE promocode SET isused = 1 WHERE id = " . Yii::app()->db->quoteValue($promocode))->execute()) {
 					Yii::app()->db->createCommand("INSERT INTO promocode_hash (promocode_id, cart_hash) VALUES (" . Yii::app()->db->quoteValue($promocode) . ", {$hash})")->execute();
-					$response = array('status' => 1);
+					$response = ['status' => 1];
 				}
 				elseif(Yii::app()->db->createCommand("SELECT COUNT(promocode_id) FROM promocode_hash WHERE promocode_id = " . Yii::app()->db->quoteValue($promocode) . " AND cart_hash = {$hash} LIMIT 1")->queryScalar() > 0) {
-					$response = array('status' => 1);
+					$response = ['status' => 1];
 				}
 			}
 		}
@@ -54,10 +54,10 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH']
 			$inscription = trim($_POST['inscription']);
 			$printpromolink = (int)$_POST['printpromolink'];
 			if(!in_array($size, get_size_array())) {
-				$response = array('status' => 0, 'reason' => 'size');
+				$response = ['status' => 0, 'reason' => 'size'];
 			}
 			if($amount <= 0) {
-				$response = array('status' => 0, 'reason' => 'amount');
+				$response = ['status' => 0, 'reason' => 'amount'];
 			}
 			if(empty($response)) {
 				$result = Yii::app()->db->createCommand("
@@ -74,11 +74,11 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH']
 			 			" . new CDbExpression('NOW()') . "
 			 		)" // ON DUPLICATE KEY UPDATE
 				)->execute();
-				$response = array(
+				$response = [
 					'status' => $result,
 					'count' => Yii::app()->db->createCommand("SELECT COUNT(id) FROM cart WHERE hash = {$hash}")->queryScalar(),
 					'sum' => (int)Yii::app()->db->createCommand("SELECT SUM(amount) FROM cart WHERE hash = {$hash}")->queryScalar(),
-				);
+				];
 			}
 		}
 		
@@ -94,18 +94,18 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH']
 			 		)" // ON DUPLICATE KEY UPDATE
 			)->execute();
 			Yii::app()->db->createCommand("UPDATE cart SET amount=amount+1 WHERE id = " . Yii::app()->db->lastInsertID)->execute() . " AND hash = {$hash}";
- 			$response = array(
+ 			$response = [
  				'status' => $result,
  				'count' => Yii::app()->db->createCommand("SELECT COUNT(id) FROM cart WHERE hash = {$hash}")->queryScalar(),
  				'sum' => (int)Yii::app()->db->createCommand("SELECT SUM(amount) FROM cart WHERE hash = {$hash}")->queryScalar(),
- 			);
+ 			];
 		}
 		
 		// Delete from cart
 		elseif($_POST['action'] == 'd') {
 			$id = (int)$_POST['id'];
 			$result = Yii::app()->db->createCommand("DELETE FROM cart WHERE id = {$id} AND hash = {$hash}")->execute();
-			$response = array(
+			$response = [
 				'status' => $result,
 				'count' => Yii::app()->db->createCommand("SELECT COUNT(id) FROM cart WHERE hash = {$hash}")->queryScalar(),
 				'sum' => (int)Yii::app()->db->createCommand("SELECT SUM(amount) FROM cart WHERE hash = {$hash}")->queryScalar(),
@@ -113,7 +113,7 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH']
 					SELECT SUM(price * amount) FROM cart 
 						INNER JOIN item ON (cart.item_id = item.id)
 					WHERE hash = {$hash}")->queryScalar()),
-			);
+			];
 		}
 		
 		// Update cart
@@ -133,7 +133,7 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH']
 				$set .= (", printpromolink = " . ((int)$_POST['printpromolink'] == 1 ? '1' : '0') . " ");
 			}
 			$result = Yii::app()->db->createCommand("UPDATE cart SET {$set} WHERE id = {$id} AND hash = {$hash}")->execute();
-			$response = array(
+			$response = [
 				'status' => $result,
 				'count' => Yii::app()->db->createCommand("SELECT COUNT(id) FROM cart WHERE hash = {$hash}")->queryScalar(),
 				'sum' => (int)Yii::app()->db->createCommand("SELECT SUM(amount) FROM cart WHERE hash = {$hash}")->queryScalar(),
@@ -145,7 +145,7 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH']
 						SELECT SUM(price * amount) FROM cart
 						INNER JOIN item ON (cart.item_id = item.id)
 						WHERE hash = {$hash}")->queryScalar()),
-			);
+			];
 		}
 		
 		elseif($_POST['action'] == 'f') {
@@ -153,9 +153,7 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH']
 			$id = (int)$_POST['id'];
 			$inscription = trim($_POST['inscription']);
 			$result = Yii::app()->db->createCommand("UPDATE cart SET inscription = " . Yii::app()->db->quoteValue($inscription) . " WHERE id = {$id} AND hash = {$hash}")->execute();
-			$response = array(
-				'status' => $result
-			);
+			$response = ['status' => $result];
 		}
 		
 		if(!empty($response)) { 

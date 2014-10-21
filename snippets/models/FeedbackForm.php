@@ -18,12 +18,12 @@ class FeedbackForm extends CFormModel
 	 */
 	public function rules()
 	{
-		return array(
-			array('fio, email, phone, text, math', 'required'),
-			array('email', 'email'),
-			array('math', 'mathOperation'),
-			array('nospam', 'compare', 'compareValue' => ''),
-		);
+		return [
+			['fio, email, phone, text, math', 'required'],
+			['email', 'email'],
+			['math', 'mathOperation'],
+			['nospam', 'compare', 'compareValue' => ''],
+		];
 	}
 	
 	/**
@@ -33,12 +33,12 @@ class FeedbackForm extends CFormModel
 	 */
 	public function attributeLabels()
 	{
-		return array(
+		return [
 			'fio'=>'ФИО',
 			'phone'=>'Телефон',
 			'text'=>'Сообщение',
 			'math'=>'Защита от спама',
-		);
+		];
 	}
 	
 	public function mathOperation($attribute, $params) {
@@ -48,11 +48,11 @@ class FeedbackForm extends CFormModel
 	}
 	
 	public function mathInit() {
-		$math = array(
+		$math = [
 			'op1' => mt_rand(50, 100),
 			'op2' => mt_rand(1, 49),
 			'operator' => mt_rand(0, 1),
-		);
+		];
 		Yii::app()->session['math'] = $math['operator'] == 0 ? $math['op1'] - $math['op2'] : $math['op1'] + $math['op2'];
 		return $math;
 	} 

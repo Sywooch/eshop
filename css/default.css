@@ -93,6 +93,9 @@ h1, h2 {
 .carousel-control-extra, span[class*="chevron-"] {
 	cursor: pointer;
 }
+span[class^="chevron-"] {
+	color: #428bca;
+}
 #cart-wrapper .table > thead > tr > th {
 	vertical-align: top;	
 }

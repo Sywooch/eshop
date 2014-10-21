@@ -17,11 +17,11 @@ class OrderForm extends CFormModel
 	 */
 	public function rules()
 	{
-		return array(
-			array('fio, email, phone, text', 'required'),
-			array('email', 'email'),
-			array('nospam', 'compare', 'compareValue' => ''),
-		);
+		return [
+			['fio, email, phone, text', 'required'],
+			['email', 'email'],
+			['nospam', 'compare', 'compareValue' => ''],
+		];
 	}
 
 	/**
@@ -31,11 +31,11 @@ class OrderForm extends CFormModel
 	 */
 	public function attributeLabels()
 	{
-		return array(
+		return [
 			'fio'=>'ФИО',
 			'phone'=>'Телефон',
 			'text'=>'Комментарий'
-		);
+		];
 	}
 	
 }

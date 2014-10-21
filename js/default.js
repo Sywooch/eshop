@@ -75,7 +75,13 @@ $(document).ready(function() {
 	});
 	$('.item-image').colorbox();
 	$('.how-to-buy-video').colorbox({'html': 'Тест', 'width': 400, 'height': 300});
-	$('.how-to-buy-gallery').colorbox({'html': 'Тест', 'width': 400, 'height': 300});
+	$('.how-to-buy-gallery').click(function() {
+		var i = 1, items = [];
+		for (; i <= 9; i++) {
+			items.push('images/presentation/'+i+'.png');
+		}
+		blueimp.Gallery(items);
+	});
 	$('a[href="#top"]').click(function(event) {
 		event.preventDefault();
 		$('html, body').animate({

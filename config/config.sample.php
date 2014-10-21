@@ -18,8 +18,8 @@ return array(
 	'params' => array(
 		'phone' => '',
 		'email' => '',
-		'VK.init.apiId' => '""',
-		'VK.Widgets.Group' => '""',
+		'VK.init.apiId' => 0, // http://vk.com/dev/Like
+		'VK.Widgets.Group' => 0, // http://vk.com/dev/Community
 		'VK.group' => '',
 	),
 );

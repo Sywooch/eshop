@@ -1,5 +1,6 @@
 config.php
 settings.php
+sitemap.xml
 node_modules
 bower_components
 /vendor

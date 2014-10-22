@@ -20,6 +20,6 @@ return [
 		'email' => '',
 		'VK.init.apiId' => 0, // http://vk.com/dev/Like
 		'VK.Widgets.Group' => 0, // http://vk.com/dev/Community
-		'VK.group' => '',
+		'VK.group' => '', // example: https://vk.com/dev.earthperson
 	],
 ];

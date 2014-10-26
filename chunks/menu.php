@@ -11,8 +11,8 @@ $page = trim($_SERVER['PHP_SELF'], '/\\');
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="/<?php echo get_base_url($page); ?>" title="<?php echo CHtml::encode(Yii::app()->name) ?>">
-				<img src="images/logo.png" alt="<?php echo CHtml::encode(Yii::app()->name) ?>" width="72" height="32">
+			<a class="navbar-brand" href="/<?= get_base_url($page); ?>" title="<?= CHtml::encode(Yii::app()->name) ?>">
+				<img src="images/logo.png" alt="<?= CHtml::encode(Yii::app()->name) ?>" width="72" height="32">
 			</a>
 		</div>
 		<div class="navbar-collapse collapse">
@@ -25,7 +25,7 @@ $page = trim($_SERVER['PHP_SELF'], '/\\');
 							<li><a href="#bestsellers">Хиты продаж</a></li>
 							<li><a href="#shop">Основной каталог</a></li>
 						<?php } else { ?>
-							<li><a href="/<?php echo get_base_url($page); ?>">Главная страница</a></li>
+							<li><a href="/<?= get_base_url($page); ?>">Главная страница</a></li>
 							<li><a href="index.php#bestsellers">Хиты продаж</a></li>
 							<li><a href="index.php#shop">Основной каталог</a></li>
 						<?php } ?>
@@ -38,7 +38,7 @@ $page = trim($_SERVER['PHP_SELF'], '/\\');
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Навигация по сайту <b class="caret"></b></a>
 					<ul class="dropdown-menu">
 						<?php if(!is_current($page, 'index')) { ?>
-						<li><a href="/<?php echo get_base_url($page); ?>"><span class="glyphicon glyphicon-home"></span> Главная страница</a></li>
+						<li><a href="/<?= get_base_url($page); ?>"><span class="glyphicon glyphicon-home"></span> Главная страница</a></li>
 						<li><a href="index.php#bestsellers">Хиты продаж</a></li>
 						<li><a href="index.php#shop">Основной каталог</a></li>
 						<?php } else { ?>
@@ -61,7 +61,7 @@ $page = trim($_SERVER['PHP_SELF'], '/\\');
 						<?php if(!is_current($page, 'about')) { ?>
 						<li><a href="about.php">О компании</a></li>
 						<?php } ?>
-						<li><a href="<?php echo Yii::app()->params['VK.group']; ?>" target="_blank">Группа ВКонтакте</a></li>
+						<li><a href="<?= Yii::app()->params['VK.group']; ?>" target="_blank">Группа ВКонтакте</a></li>
 						<?php if(!is_current($page, 'sitemap')) { ?>
 						<li class="divider"></li>
 						<li><a href="sitemap.php">Карта сайта</a></li>
@@ -69,7 +69,7 @@ $page = trim($_SERVER['PHP_SELF'], '/\\');
 					</ul>
 				</li>
 			</ul>
-			<span class="pull-right">Телефон: <?php echo Yii::app()->params['phone']; ?></span>
+			<span class="pull-right">Телефон: <?= Yii::app()->params['phone']; ?></span>
 		</div><!--/.nav-collapse -->
 	</div>
 </div>

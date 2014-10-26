@@ -11,8 +11,8 @@ $hash = get_hash_for_sql();
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title><?php echo CHtml::encode(Yii::app()->name) . (isset($title) ? CHtml::encode(' | ' . $title) : '') ?></title>
-		<meta name="description" content="<?php echo CHtml::encode(isset($description) ? $description : Yii::app()->name) ?>">
+		<title><?= CHtml::encode(Yii::app()->name) . (isset($title) ? CHtml::encode(' | ' . $title) : '') ?></title>
+		<meta name="description" content="<?= CHtml::encode(isset($description) ? $description : Yii::app()->name) ?>">
 		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 		<!-- Bootstrap -->
 		<link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -33,7 +33,7 @@ $hash = get_hash_for_sql();
 		<script type="text/javascript" src="js/ya-share.min.js"></script>
 		<script type="text/javascript" src="//vk.com/js/api/openapi.js?113"></script>
 		<script type="text/javascript">
-		VK.init({apiId: <?php echo Yii::app()->params['VK.init.apiId']; ?>, onlyWidgets: true});
+		VK.init({apiId: <?= Yii::app()->params['VK.init.apiId']; ?>, onlyWidgets: true});
 		</script>
 	</head>
 		<body>

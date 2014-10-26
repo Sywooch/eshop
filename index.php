@@ -28,18 +28,18 @@ $bestsellers = Yii::app()->db->createCommand("SELECT * FROM item WHERE bestselle
 				</div>
 				<ol class="carousel-indicators">
 					<?php foreach ($bestsellers as $k => $row) { ?>
-					<li data-target="#carousel" data-slide-to="<?php echo $k ?>"<?php echo $k == 0 ? ' class="active"' : '' ?>></li>
+					<li data-target="#carousel" data-slide-to="<?= $k ?>"<?= $k == 0 ? ' class="active"' : '' ?>></li>
 					<?php } ?>
 				</ol>
 				<!-- Wrapper for slides -->
 				<div class="carousel-inner">
 					<?php foreach ($bestsellers as $k => $row) { ?>
-					<div class="item<?php echo $k == 0 ? ' active' : '' ?>">
-						<img src="images/gallery/<?php echo $row['id'] ?>.png" alt="<?php echo CHtml::encode($row['name']) ?>" width="600">
+					<div class="item<?= $k == 0 ? ' active' : '' ?>">
+						<img src="images/gallery/<?= $row['id'] ?>.png" alt="<?= CHtml::encode($row['name']) ?>" width="600">
 						<div class="carousel-caption">
-							<h4><?php echo CHtml::encode($row['name']) ?></h4>
-							<h4><?php echo price_format($row['price']) ?> руб.</h4>
-							<button type="button" class="btn btn-sm btn-primary" id="item-id-a-<?php echo $row['id'] ?>">
+							<h4><?= CHtml::encode($row['name']) ?></h4>
+							<h4><?= price_format($row['price']) ?> руб.</h4>
+							<button type="button" class="btn btn-sm btn-primary" id="item-id-a-<?= $row['id'] ?>">
 								<span class="glyphicon glyphicon-shopping-cart"></span> Положить в корзину
 							</button>
 						</div>
@@ -58,19 +58,19 @@ $bestsellers = Yii::app()->db->createCommand("SELECT * FROM item WHERE bestselle
 		</div>
 		<div class="col-md-6">
 			<p><a href="cart.php">В Вашей корзине</a>: 
-			Позиций: <span class="badge" id="cart-count"><?php echo Yii::app()->db->createCommand("SELECT COUNT(id) FROM cart WHERE hash = {$hash}")->queryScalar() ?></span>,
-			Футболок: <span class="badge" id="cart-sum"><?php echo (int)Yii::app()->db->createCommand("SELECT SUM(amount) FROM cart WHERE hash = {$hash}")->queryScalar() ?></span>.</p>
+			Позиций: <span class="badge" id="cart-count"><?= Yii::app()->db->createCommand("SELECT COUNT(id) FROM cart WHERE hash = {$hash}")->queryScalar() ?></span>,
+			Футболок: <span class="badge" id="cart-sum"><?= (int)Yii::app()->db->createCommand("SELECT SUM(amount) FROM cart WHERE hash = {$hash}")->queryScalar() ?></span>.</p>
 			<p><a href="#shop" class="dashed-link">Перейти в основной каталог</a></p>
 			<p><span class="label label-info">Внимание!</span> Вы можете заказать <a href="vip.php"><span class="glyphicon glyphicon-link"></span> свой вариант</a> дизайна футболки <span style="white-space: nowrap;">с предоплатой <em>50%</em>.</span></p>
 			<hr>
-			<h3>Хиты продаж: &nbsp; <span class="chevron-left" title="Предыдущая">&laquo;</span> <span id="item_name"><?php echo CHtml::encode(Yii::app()->db->createCommand("SELECT name FROM item WHERE bestsellers <> 0 ORDER BY id LIMIT 1")->queryScalar()) ?></span>  <span class="chevron-right" title="Следующая">&raquo;</span></h3>
+			<h3>Хиты продаж: &nbsp; <span class="chevron-left" title="Предыдущая">&laquo;</span> <span id="item_name"><?= CHtml::encode(Yii::app()->db->createCommand("SELECT name FROM item WHERE bestsellers <> 0 ORDER BY id LIMIT 1")->queryScalar()) ?></span>  <span class="chevron-right" title="Следующая">&raquo;</span></h3>
 			<form class="form-inline" role="form">
 				<input type="hidden" id="item_id" value="1">
 				<div class="form-group">
 					<select class="form-control" id="cart-item-size">
 						<option>--- Выберите размер ---</option>
 						<?php foreach (get_size_array() as $value) {?>
-							<option><?php echo $value ?></option>
+							<option><?= $value ?></option>
 						<?php } ?>
 					</select>
 					<a href="#" id="help" class="dashed-link" title="Таблица размеров футболок" data-content='Вы можете перейти на <a href="help.php">страницу с памяткой</a> по размерам футболок, если сомневаетесь что выбрать.'><span class="glyphicon glyphicon-flag"></span></a> &nbsp;
@@ -93,7 +93,7 @@ $bestsellers = Yii::app()->db->createCommand("SELECT * FROM item WHERE bestselle
 				<div class="form-group">
 					<div class="checkbox">
 						<label>
-							<input type="checkbox" id="cart-item-printpromolink"> Ссылка на <a href="<?php echo Yii::app()->params['VK.group']; ?>" target="_blank">группу ВКонтакте</a> в правом нижнем углу футболки (<span style="white-space: nowrap;"><em>-10%</em> стоимости</span>).
+							<input type="checkbox" id="cart-item-printpromolink"> Ссылка на <a href="<?= Yii::app()->params['VK.group']; ?>" target="_blank">группу ВКонтакте</a> в правом нижнем углу футболки (<span style="white-space: nowrap;"><em>-10%</em> стоимости</span>).
 						</label>
 					</div>
 				</div>
@@ -128,8 +128,8 @@ $bestsellers = Yii::app()->db->createCommand("SELECT * FROM item WHERE bestselle
 			<?php 
 			$shop = Yii::app()->db->createCommand("SELECT * FROM item WHERE bestsellers = 0 ORDER BY id")->queryAll();
 			foreach ($shop as $k => $row) { ?>
-			<a href="images/gallery/<?php echo $row['id'] ?>.png?<?php echo $row['id'] ?>" title="Артикул: <?php echo CHtml::encode($row['name']) ?>. Цена: <?php echo price_format($row['price']) ?> руб." data-gallery class="zoom-in">
-		        <img src="images/gallery/thumbs/<?php echo $row['id'] ?>.png" alt="<?php echo CHtml::encode($row['name']) ?>">
+			<a href="images/gallery/<?= $row['id'] ?>.png?<?= $row['id'] ?>" title="Артикул: <?= CHtml::encode($row['name']) ?>. Цена: <?= price_format($row['price']) ?> руб." data-gallery class="zoom-in">
+		        <img src="images/gallery/thumbs/<?= $row['id'] ?>.png" alt="<?= CHtml::encode($row['name']) ?>">
 		    </a>
 			<?php } ?>
 		</div>

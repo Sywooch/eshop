@@ -10,7 +10,7 @@ Yii::import('application.snippets.Sitemap');
 	</div>
 	<ul>
 		<?php foreach((new Sitemap) as $href => $label) { ?>
-		<li><a href="<?php printf($href, get_base_url($page)) ?>"><?php echo CHtml::encode($label) ?></a></li>
+		<li><a href="<?php printf($href, get_base_url($page)) ?>"><?= CHtml::encode($label) ?></a></li>
 		<?php } ?>
 	</ul>
 </div>

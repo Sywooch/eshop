@@ -32,8 +32,13 @@ require_once 'chunks/menu.php';
 		<li>Спасибо, что выбрали футболки от  <?= CHtml::encode(Yii::app()->name); ?>. В этих футболках у Вас всегда будет хорошее настроение!</li>
 	</ul>
 </div>
+<div id="links" style="display: none;">
+	<?php for($i = 1; $i < 10; $i++) { ?>
+    	<a href="images/presentation/<?= $i ?>.png" title="<?= $i ?>" data-gallery></a>
+    <?php } ?>
+</div>
 <!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
-<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
+<div id="blueimp-gallery"  class="blueimp-gallery blueimp-gallery-controls" data-use-bootstrap-modal="false">
 	<!-- The container for the modal slides -->
 	<div class="slides"></div>
 	<!-- Controls for the borderless lightbox -->

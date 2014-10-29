@@ -37,6 +37,28 @@ require_once 'chunks/menu.php';
     	<a href="images/presentation/<?= $i ?>.png" title="<?= $i ?>" data-gallery></a>
     <?php } ?>
 </div>
+<!-- Modal screencast -->
+<div class="modal fade" id="modalScreencast" tabindex="-1" role="dialog" aria-labelledby="modalScreencastLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="modalScreencastLabel">Screencast</h4>
+			</div>
+			<div class="modal-body">
+				<video controls width="800" height="600" poster="http://earthperson.github.io/eshop/images/presentation/screencast/eshop.png">
+					<source src="http://earthperson.github.io/eshop/images/presentation/screencast/eshop.webm" type="video/webm">
+					<source src="http://earthperson.github.io/eshop/images/presentation/screencast/eshop.mp4" type="video/mp4">
+					<source src="http://earthperson.github.io/eshop/images/presentation/screencast/eshop.ogv" type="video/ogv">
+					I'm sorry; your browser doesn't support HTML5 video in WebM with VP8 or MP4 with H.264.
+				</video>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 <!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
 <div id="blueimp-gallery"  class="blueimp-gallery blueimp-gallery-controls" data-use-bootstrap-modal="false">
 	<!-- The container for the modal slides -->

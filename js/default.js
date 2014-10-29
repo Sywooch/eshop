@@ -74,8 +74,12 @@ $(document).ready(function() {
 		$(this).prev().removeClass().addClass('dropup');
 	});
 	$('.item-image').colorbox();
-	$('.how-to-buy-video').colorbox({'html': 'Тест', 'width': 400, 'height': 300});
-	$('.how-to-buy-gallery').click(function() {
+	$('.how-to-buy-video').click(function(event) {
+		event.preventDefault();
+		$('#modalScreencast').modal();
+	});
+	$('.how-to-buy-gallery').click(function(event) {
+		event.preventDefault();
 		$('#links a:first').click();
 	});
 	$('a[href="#top"]').click(function(event) {

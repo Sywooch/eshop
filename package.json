@@ -1,7 +1,7 @@
 {
 	"name": "eshop",
 	"description": "Very simple eshop. As an example - the catalog of T-shirts.",
-	"version": "0.3.4",
+	"version": "0.3.5",
 	"homepage": "https://github.com/earthperson/eshop",
 	"author": {
 		"name": "Dmitry Ponomarev (email: ponomarev.dev@gmail.com)",

@@ -46,7 +46,7 @@ require_once 'chunks/menu.php';
 				<h4 class="modal-title" id="modalScreencastLabel">Screencast</h4>
 			</div>
 			<div class="modal-body">
-				<video controls width="800" height="600" poster="http://earthperson.github.io/eshop/images/presentation/screencast/eshop.png">
+				<video controls width="800" height="600" poster="http://earthperson.github.io/eshop/images/presentation/2.png">
 					<source src="http://earthperson.github.io/eshop/images/presentation/screencast/eshop.webm" type="video/webm">
 					<source src="http://earthperson.github.io/eshop/images/presentation/screencast/eshop.mp4" type="video/mp4">
 					<source src="http://earthperson.github.io/eshop/images/presentation/screencast/eshop.ogv" type="video/ogv">

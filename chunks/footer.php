@@ -8,9 +8,8 @@
 		</div>
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
 		<script src="bootstrap/dist/js/bootstrap.min.js"></script>
-		<script src="blueimp/js/jquery.blueimp-gallery.min.js"></script>
-		<script src="blueimp-bootstrap/js/bootstrap-image-gallery.min.js"></script>
-		<script type="text/javascript" src="js/default.min.js"></script>
-		<script type="text/javascript" src="js/rpc.min.js"></script>
+		<script src="blueimp-gallery/js/jquery.blueimp-gallery.min.js"></script>
+		<script src="blueimp-bootstrap-image-gallery/js/bootstrap-image-gallery.min.js"></script>
+		<script type="text/javascript" src="js/output.min.js"></script>
 	</body>
 </html>

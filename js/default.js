@@ -16,6 +16,7 @@ $(document).ready(function() {
 	$('#carousel').on('slid.bs.carousel', function (e) {
 		// e.target.id // carousel ID 
 		var index = $(".active", e.target).index(); // active slide index
+		$('#item_id').val(index + 1);
 		$('#item_id').text(index + 1);
 		$('#item_name').text($('.item:eq(' + index + ') .carousel-caption h4:first', this).text());
 	});

@@ -16,86 +16,87 @@
 			<script src="bootstrap/vendor/js/html5shiv.js"></script>
 			<script src="bootstrap/vendor/js/respond.min.js"></script>
 		<![endif]-->
-		<link rel="stylesheet" href="blueimp/css/blueimp-gallery.min.css">
-		<link rel="stylesheet" href="blueimp-bootstrap/css/bootstrap-image-gallery.min.css">
+		<link rel="stylesheet" href="blueimp-gallery/css/blueimp-gallery.min.css">
+		<link rel="stylesheet" href="blueimp-bootstrap-image-gallery/css/bootstrap-image-gallery.min.css">
 		<link href="css/default.css" rel="stylesheet">
 	</head>
-		<body>
-			<div class="container">
-				<h1><img src="images/logo.png" alt="eshop" width="72" height="32"></h1>
-				<p><a href="https://github.com/earthperson/eshop">Very simple eshop</a>. As an example - the catalog of T-shirts.</p>
-				<h2>Screencast</h2>
-				<video controls width="800" height="600" poster="images/presentation/2.png">
-					<source src="images/presentation/screencast/eshop.webm" type="video/webm">
-					<source src="images/presentation/screencast/eshop.mp4" type="video/mp4">
-					<source src="images/presentation/screencast/eshop.ogv" type="video/ogv">
-					I'm sorry; your browser doesn't support HTML5 video in WebM with VP8 or MP4 with H.264.
-				</video>
-				<h2>Screenshots</h2>
-				<div id="links">
-				    <a href="images/presentation/1.png" title="1" data-gallery>
-				        <img src="images/presentation/thumbs/1.png" alt="1" width="300">
-				    </a>
-				    <a href="images/presentation/2.png" title="2" data-gallery>
-				        <img src="images/presentation/thumbs/2.png" alt="2" width="300">
-				    </a>
-   				    <a href="images/presentation/3.png" title="3" data-gallery>
-				        <img src="images/presentation/thumbs/3.png" alt="3" width="300">
-				    </a>
-   				    <a href="images/presentation/4.png" title="4" data-gallery>
-				        <img src="images/presentation/thumbs/4.png" alt="4" width="300">
-				    </a>
-  				    <a href="images/presentation/5.png" title="5" data-gallery>
-				        <img src="images/presentation/thumbs/5.png" alt="5" width="300">
-				    </a>
-   				    <a href="images/presentation/6.png" title="6" data-gallery>
-				        <img src="images/presentation/thumbs/6.png" alt="6" width="300">
-				    </a>
-     				<a href="images/presentation/7.png" title="7" data-gallery>
-				        <img src="images/presentation/thumbs/7.png" alt="7" width="300">
-				    </a>
-				    <a href="images/presentation/8.png" title="8" data-gallery>
-				        <img src="images/presentation/thumbs/8.png" alt="8" width="300">
-				    </a>
-				    <a href="images/presentation/9.png" title="9" data-gallery>
-				        <img src="images/presentation/thumbs/9.png" alt="9" width="300">
-				    </a>
-				</div>
-				<!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
-				<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls" data-use-bootstrap-modal="false">
-					<!-- The container for the modal slides -->
-					<div class="slides"></div>
-					<!-- Controls for the borderless lightbox -->
-					<h3 class="title"></h3>
-					<a class="prev">‹</a>
-					<a class="next">›</a>
-					<a class="close">&times;</a>
-					<a class="play-pause"></a>
-					<ol class="indicator"></ol>
-					<!-- The modal dialog, which will be used to wrap the lightbox content -->
-					<div class="modal fade">
-						<div class="modal-dialog">
-							<div class="modal-content">
-								<div class="modal-header">
-									<button type="button" class="close" aria-hidden="true">&times;</button>
-									<h4 class="modal-title"></h4>
-								</div>
-								<div class="modal-body next"></div>
-								<div class="modal-footer">
-				                    <button type="button" class="btn btn-default pull-left prev">
-				                        <i class="glyphicon glyphicon-chevron-left"></i>
-				                        Предыдущее
-				                    </button>
-				                    <button type="button" class="btn btn-primary next">
-				                        Следующее
-				                        <i class="glyphicon glyphicon-chevron-right"></i>
-				                    </button>
-				                </div>
+	<body>
+		<div class="container">
+			<h1><img src="images/logo.png" alt="eshop" width="72" height="32"></h1>
+			<p><a href="https://github.com/earthperson/eshop">Very simple eshop</a>. As an example - the catalog of T-shirts.</p>
+			<h2>Screencast</h2>
+			<video controls width="800" height="600" poster="images/presentation/2.png">
+				<source src="images/presentation/screencast/eshop.webm" type="video/webm">
+				<source src="images/presentation/screencast/eshop.mp4" type="video/mp4">
+				<source src="images/presentation/screencast/eshop.ogv" type="video/ogv">
+				I'm sorry; your browser doesn't support HTML5 video in WebM with VP8 or MP4 with H.264.
+			</video>
+			<h2>Screenshots</h2>
+			<div id="links">
+			    <a href="images/presentation/1.png" title="1" data-gallery>
+			        <img src="images/presentation/thumbs/1.png" alt="1" width="300">
+			    </a>
+			    <a href="images/presentation/2.png" title="2" data-gallery>
+			        <img src="images/presentation/thumbs/2.png" alt="2" width="300">
+			    </a>
+  				    <a href="images/presentation/3.png" title="3" data-gallery>
+			        <img src="images/presentation/thumbs/3.png" alt="3" width="300">
+			    </a>
+  				    <a href="images/presentation/4.png" title="4" data-gallery>
+			        <img src="images/presentation/thumbs/4.png" alt="4" width="300">
+			    </a>
+ 				    <a href="images/presentation/5.png" title="5" data-gallery>
+			        <img src="images/presentation/thumbs/5.png" alt="5" width="300">
+			    </a>
+  				    <a href="images/presentation/6.png" title="6" data-gallery>
+			        <img src="images/presentation/thumbs/6.png" alt="6" width="300">
+			    </a>
+    				<a href="images/presentation/7.png" title="7" data-gallery>
+			        <img src="images/presentation/thumbs/7.png" alt="7" width="300">
+			    </a>
+			    <a href="images/presentation/8.png" title="8" data-gallery>
+			        <img src="images/presentation/thumbs/8.png" alt="8" width="300">
+			    </a>
+			    <a href="images/presentation/9.png" title="9" data-gallery>
+			        <img src="images/presentation/thumbs/9.png" alt="9" width="300">
+			    </a>
+			</div>
+			<!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
+			<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls" data-use-bootstrap-modal="false">
+				<!-- The container for the modal slides -->
+				<div class="slides"></div>
+				<!-- Controls for the borderless lightbox -->
+				<h3 class="title"></h3>
+				<a class="prev">‹</a>
+				<a class="next">›</a>
+				<a class="close">&times;</a>
+				<a class="play-pause"></a>
+				<ol class="indicator"></ol>
+				<!-- The modal dialog, which will be used to wrap the lightbox content -->
+				<div class="modal fade">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" aria-hidden="true">&times;</button>
+								<h4 class="modal-title"></h4>
 							</div>
+							<div class="modal-body next"></div>
+							<div class="modal-footer">
+			                    <button type="button" class="btn btn-default pull-left prev">
+			                        <i class="glyphicon glyphicon-chevron-left"></i>
+			                        Предыдущее
+			                    </button>
+			                    <button type="button" class="btn btn-primary next">
+			                        Следующее
+			                        <i class="glyphicon glyphicon-chevron-right"></i>
+			                    </button>
+			                </div>
 						</div>
 					</div>
 				</div>
 			</div>
+			<br><br>
+		</div>
 		<div id="footer">
 			<div class="container">
 				<p class="text-muted">
@@ -105,7 +106,7 @@
 		</div>
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
 		<script src="bootstrap/dist/js/bootstrap.min.js"></script>
-		<script src="blueimp/js/jquery.blueimp-gallery.min.js"></script>
-		<script src="blueimp-bootstrap/js/bootstrap-image-gallery.min.js"></script>
+		<script src="blueimp-gallery/js/jquery.blueimp-gallery.min.js"></script>
+		<script src="blueimp-bootstrap-image-gallery/js/bootstrap-image-gallery.min.js"></script>
 	</body>
 </html>

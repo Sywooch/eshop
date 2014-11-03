@@ -23,14 +23,10 @@ $hash = get_hash_for_sql();
 			<script src="bootstrap/vendor/js/html5shiv.js"></script>
 			<script src="bootstrap/vendor/js/respond.min.js"></script>
 		<![endif]-->
-		<link href="css/default.min.css" rel="stylesheet">
-		<script type="text/javascript" src="colorbox/jquery.colorbox-min.js"></script>
-		<script type="text/javascript" src="colorbox/i18n/jquery.colorbox-ru.js"></script>
-		<link rel="stylesheet" type="text/css" href="colorbox/colorbox.min.css" media="screen" />
-		<link rel="stylesheet" href="blueimp/css/blueimp-gallery.min.css">
-		<link rel="stylesheet" href="blueimp-bootstrap/css/bootstrap-image-gallery.min.css">
+		<link rel="stylesheet" href="blueimp-gallery/css/blueimp-gallery.min.css">
+		<link rel="stylesheet" href="blueimp-bootstrap-image-gallery/css/bootstrap-image-gallery.min.css">
+		<link href="css/output.min.css" rel="stylesheet">
 		<script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>
-		<script type="text/javascript" src="js/ya-share.min.js"></script>
 		<script type="text/javascript" src="//vk.com/js/api/openapi.js?113"></script>
 		<script type="text/javascript">
 		VK.init({apiId: <?= Yii::app()->params['VK.init.apiId']; ?>, onlyWidgets: true});

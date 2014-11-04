@@ -17,7 +17,7 @@
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-home"></span> Каталог <b class="caret"></b></a>
 					<ul class="dropdown-menu">
-						<?php if(is_current('index')) { ?>
+						<?php if(is_current('')) { ?>
 							<li><a href="#top">Главная страница</a></li>
 							<li><a href="#bestsellers">Хиты продаж</a></li>
 							<li><a href="#shop">Основной каталог</a></li>
@@ -34,7 +34,7 @@
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Навигация по сайту <b class="caret"></b></a>
 					<ul class="dropdown-menu">
-						<?php if(!is_current('index')) { ?>
+						<?php if(!is_current('')) { ?>
 						<li><a href="<?= create_url('/') ?>"><span class="glyphicon glyphicon-home"></span> Главная страница</a></li>
 						<li><a href="<?= create_url('/', '#bestsellers') ?>">Хиты продаж</a></li>
 						<li><a href="<?= create_url('/', '#shop') ?>">Основной каталог</a></li>

@@ -18,7 +18,8 @@ function get_absolute_url() {
 	return Yii::app()->request->hostInfo;
 }
 function is_current($needle) {
-	return strrpos(Yii::app()->getUrlManager()->parseUrl(Yii::app()->getRequest()), $needle) !== false;
+	$route = Yii::app()->getUrlManager()->parseUrl(Yii::app()->getRequest());
+	return $route == $needle || strrpos($route, $needle) !== false;
 }
 function create_url($page, $hash = null) {
 	$params = array();

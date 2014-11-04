@@ -90,15 +90,19 @@ $(document).ready(function() {
 		}, 750, 'swing');
 	});
 	$('a[href$="#bestsellers"]').click(function(event) {
-		event.preventDefault();
-		$('html, body').animate({
-			scrollTop: ($('#bestsellers').offset().top)
-		}, 750, 'swing');
+		if(document.getElementById('bestsellers')) {
+			event.preventDefault();
+			$('html, body').animate({
+				scrollTop: ($('#bestsellers').offset().top)
+			}, 750, 'swing');
+		}
 	});
 	$('a[href$="#shop"]').click(function(event) {
-		event.preventDefault();
-		$('html, body').animate({
-			scrollTop: ($('#shop').offset().top)
-		}, 750, 'swing');
+		if(document.getElementById('shop')) {
+			event.preventDefault();
+			$('html, body').animate({
+				scrollTop: ($('#shop').offset().top)
+			}, 750, 'swing');
+		}
 	});
 });

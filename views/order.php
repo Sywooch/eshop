@@ -1,7 +1,8 @@
 <?php
 if(Yii::app()->db->createCommand("SELECT COUNT(id) FROM cart WHERE hash = {$hash}")->queryScalar() == 0) {
-	Yii::app()->request->redirect(get_absolute_url());
+	Yii::app()->request->redirect(create_url('/'));
 }
+ob_end_flush();
 Yii::import('application.snippets.models.OrderForm');
 $model = new OrderForm;
 $model->setAttributes($_POST);

@@ -2,7 +2,6 @@
 ob_start();
 require_once 'chunks/head.php';
 require_once 'chunks/menu.php';
-ob_end_flush();
 
 if(is_file("views/{$route}.php")) {
 	require_once "views/{$route}.php";

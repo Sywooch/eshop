@@ -35,6 +35,9 @@ if(isset(Yii::app()->params['pages'][$route])) {
 		<script type="text/javascript">
 		VK.init({apiId: <?= Yii::app()->params['VK.init.apiId']; ?>, onlyWidgets: true});
 		</script>
+		<script type="text/javascript">
+			var eshop = {"order": "<?= create_url('order') ?>"};
+		</script>
 	</head>
 		<body>
 		

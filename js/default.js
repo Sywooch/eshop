@@ -23,11 +23,8 @@ $(document).ready(function() {
 	$('h3 span[class*="chevron-"]').click(function() {
 		$('#carousel').carousel($(this).index() === 0 ? 'prev' : 'next');
 	});
-	$('.btn-cart').on('click', function() {
-		window.location.href = 'cart';
-	});
 	$('.btn-order').on('click', function() {
-		window.location.href = 'order';
+		window.location.href = eshop.order;
 	});
 	if($('#inscription').prop('checked')) {
 		$('#inscription-text-wrapper').show();

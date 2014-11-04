@@ -5,11 +5,8 @@ Yii::createWebApplication('config/config.php');
 require_once 'snippets/helper.php';
 $hash = get_hash_for_sql();
 $route = Yii::app()->getUrlManager()->parseUrl(Yii::app()->getRequest());
-foreach (Yii::app()->params['pages'] as $k => $v) {
-	if(strrpos($k, $route) !== false) {
-		$title = $v;
-		break;
-	}
+if(isset(Yii::app()->params['pages'][$route])) {
+	$title = Yii::app()->params['pages'][$route];
 }
 ?>
 <!DOCTYPE html>

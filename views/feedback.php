@@ -51,7 +51,7 @@ $model->setAttributes($_POST);
 				<label class="control-label" for="controlMath"><small>Защита от спама, напишите сколько будет: <?= $math_init['op1'] ?> <?= $math_init['operator'] ? 'плюс' : 'минус' ?> <?= $math_init['op2'] ?>?</small></label>
 				<input type="number" class="form-control" name="math" id="controlMath" value="">
 			</div>
-			<button type="submit" class="btn btn-default">Отправить</button>
+			<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-send"></span> Отправить</button>
 		</form>
 	</div>
 	<?php } else { ?>

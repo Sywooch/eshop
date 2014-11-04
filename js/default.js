@@ -89,13 +89,13 @@ $(document).ready(function() {
 			scrollTop: 0
 		}, 750, 'swing');
 	});
-	$('a[href="#bestsellers"]').click(function(event) {
+	$('a[href$="#bestsellers"]').click(function(event) {
 		event.preventDefault();
 		$('html, body').animate({
 			scrollTop: ($('#bestsellers').offset().top)
 		}, 750, 'swing');
 	});
-	$('a[href="#shop"]').click(function(event) {
+	$('a[href$="#shop"]').click(function(event) {
 		event.preventDefault();
 		$('html, body').animate({
 			scrollTop: ($('#shop').offset().top)

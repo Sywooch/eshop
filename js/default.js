@@ -24,10 +24,10 @@ $(document).ready(function() {
 		$('#carousel').carousel($(this).index() === 0 ? 'prev' : 'next');
 	});
 	$('.btn-cart').on('click', function() {
-		window.location.href = 'cart.php';
+		window.location.href = 'cart';
 	});
 	$('.btn-order').on('click', function() {
-		window.location.href = 'order.php';
+		window.location.href = 'order';
 	});
 	if($('#inscription').prop('checked')) {
 		$('#inscription-text-wrapper').show();

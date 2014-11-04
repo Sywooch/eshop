@@ -1,7 +1,4 @@
 <?php
-$title = 'Обратная связь';
-require_once 'chunks/head.php';
-require_once 'chunks/menu.php';
 Yii::import('application.snippets.models.FeedbackForm');
 $model = new FeedbackForm;
 $model->setAttributes($_POST);
@@ -61,4 +58,3 @@ $model->setAttributes($_POST);
 	<div class="alert alert-success">Спасибо! Обратная связь с Клиентами помогает улучшить наш сервис.</div>
 	<?php } ?>
 </div>
-<?php require_once 'chunks/footer.php' ?>

@@ -10,21 +10,10 @@ class Sitemap implements Iterator
 	
 	protected $priority = 0.5;
 	
-	protected $items = [
-		'/%s' => 'Каталог',
-		'cart.php' => 'Корзина',
-		'how-to-buy.php' => 'Где и как купить футболку',
-		'shipping.php' => 'Условия и способы доставки',
-		'vip.php' => 'Заказать свой вариант дизайна',
-		'payment.php' => 'Способы оплаты',
-		'help.php' => 'Таблицы размеров футболок',
-		'about.php' => 'О компании',
-		'public-offer.php' => 'Публичная оферта',
-		'feedback.php' => 'Обратная связь',
-		'sitemap.php' => 'Карта сайта',
-	];
+	protected $items = array();
 	
 	public function __construct() {
+		$this->items = Yii::app()->params['pages'];
 		$this->saveXML();
 		return $this;
 	}
@@ -56,7 +45,7 @@ class Sitemap implements Iterator
 		foreach ($this->items as $k => $v) {
 			$url = $dom->createElement('url');
 			$loc = $dom->createElement('loc');
-			$loc->appendChild($dom->createTextNode(str_replace('%s', '', $k)));
+			$loc->appendChild($dom->createTextNode(create_url($k)));
 			$url->appendChild($loc);
 			$lastmod = $dom->createElement('lastmod');
 			$lastmod->appendChild($dom->createTextNode(date('Y-m-d')));

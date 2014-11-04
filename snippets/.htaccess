@@ -1,0 +1,6 @@
+Order Deny,Allow
+Deny from all
+
+<FilesMatch process\.php>
+	Allow from all
+</FilesMatch>

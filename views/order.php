@@ -1,12 +1,7 @@
 <?php
-$title = 'Оформление заказа';
-ob_start();
-require_once 'chunks/head.php';
-require_once 'chunks/menu.php';
 if(Yii::app()->db->createCommand("SELECT COUNT(id) FROM cart WHERE hash = {$hash}")->queryScalar() == 0) {
-	Yii::app()->request->redirect('/' . get_base_url($page));
+	Yii::app()->request->redirect(get_absolute_url());
 }
-ob_end_flush();
 Yii::import('application.snippets.models.OrderForm');
 $model = new OrderForm;
 $model->setAttributes($_POST);
@@ -20,9 +15,9 @@ $validate = $model->validate();
 			</div>
 			<div class="col-md-2">
 				<?php if(empty($_POST) or !$validate) { ?>
-				<a href="cart.php" class="pull-right">&laquo; Вернуться в корзину</a>
+				<a href="<?= create_url('cart') ?>" class="pull-right">&laquo; Вернуться в корзину</a>
 				<?php } else { ?>
-				<a href="index.php" class="pull-right">&laquo; Вернуться в каталог</a>
+				<a href="<?= create_url('/') ?>" class="pull-right">&laquo; Вернуться в каталог</a>
 				<?php } ?>
 			</div>
 		</div>
@@ -30,10 +25,10 @@ $validate = $model->validate();
 	<?php if(empty($_POST) or !$validate) { ?>
 	<p>Итак, уважаемый Покупатель, вы проделали следующие действия:</p>
 	<ul>
-		<li>Заполнили <a href="cart.php">Вашу корзину</a> футболками от  <?= CHtml::encode(Yii::app()->name); ?> и при необходимости сверились с <a href="help.php">таблицей размеров</a>;</li>
-		<li>Ознакомились с <a href="shipping.php">условиями и способами доставки</a>;</li>
-		<li>Ознакомились со <a href="payment.php">способами оплаты</a>;</li>
-		<li>Прочитали <a href="public-offer.php">публичную оферту</a>.</li>
+		<li>Заполнили <a href="<?= create_url('cart') ?>">Вашу корзину</a> футболками от  <?= CHtml::encode(Yii::app()->name); ?> и при необходимости сверились с <a href="<?= create_url('help') ?>">таблицей размеров</a>;</li>
+		<li>Ознакомились с <a href="<?= create_url('shipping') ?>">условиями и способами доставки</a>;</li>
+		<li>Ознакомились со <a href="<?= create_url('payment') ?>">способами оплаты</a>;</li>
+		<li>Прочитали <a href="<?= create_url('public-offer') ?>">публичную оферту</a>.</li>
 	</ul>	
 	<p>Вам осталось сделать один небольшой шаг на пути Вашей покупки &#8211; расскажите, пожалуйста, немного о себе:</p>
 	<div class="well">
@@ -76,4 +71,3 @@ $validate = $model->validate();
 	<div class="alert alert-success">Ваш заказ №<?= $order_id ?> успешно отправлен. Спасибо, что заказали футболки от  <?= CHtml::encode(Yii::app()->name); ?>!</div>
 	<?php } ?>
 </div>
-<?php require_once 'chunks/footer.php' ?>

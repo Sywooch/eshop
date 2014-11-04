@@ -1,8 +1,3 @@
-<?php
-$title = 'Таблица размеров футболок';
-require_once 'chunks/head.php';
-require_once 'chunks/menu.php';
-?>
 <div class="container">
 	<div class="page-header">
 		<h1><span class="glyphicon glyphicon-flag"></span> Таблицы размеров футболок</h1>
@@ -116,4 +111,3 @@ require_once 'chunks/menu.php';
 	</div>
 	<br>
 </div>
-<?php require_once 'chunks/footer.php' ?>

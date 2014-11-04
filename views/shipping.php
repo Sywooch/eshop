@@ -1,8 +1,3 @@
-<?php
-$title = 'Условия и способы доставки';
-require_once 'chunks/head.php';
-require_once 'chunks/menu.php';
-?>
 <div class="container">
 	<div class="page-header">
 		<h1>Условия и способы доставки</h1>
@@ -19,4 +14,3 @@ require_once 'chunks/menu.php';
 		</li>
 	</ol>
 </div>
-<?php require_once 'chunks/footer.php' ?>

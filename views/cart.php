@@ -1,9 +1,4 @@
-<?php
-$title = 'Корзина';
-require_once 'chunks/head.php';
-require_once 'chunks/menu.php';
-Yii::app()->db->createCommand("DELETE FROM cart WHERE created < DATE_SUB(NOW(), INTERVAL 2 DAY)")->execute();
-?>
+<?php Yii::app()->db->createCommand("DELETE FROM cart WHERE created < DATE_SUB(NOW(), INTERVAL 2 DAY)")->execute() ?>
 <div class="container">
 	<div class="page-header">
 		<div class="row">
@@ -11,7 +6,7 @@ Yii::app()->db->createCommand("DELETE FROM cart WHERE created < DATE_SUB(NOW(), 
 				<h1>Корзина</h1>
 			</div>
 			<div class="col-md-2">
-				<a href="index.php" class="pull-right">&laquo; Вернуться в каталог</a>
+				<a href="<?= create_url('/') ?>" class="pull-right">&laquo; Вернуться в каталог</a>
 			</div>
 		</div>
 	</div>
@@ -41,7 +36,7 @@ Yii::app()->db->createCommand("DELETE FROM cart WHERE created < DATE_SUB(NOW(), 
 						<th>Артикул</th>
 						<th>Надпись</th>
 						<th>Ссылка на группу</th>
-						<th>Размер <a href="help.php"><span class="glyphicon glyphicon-flag"></span></a></th>
+						<th>Размер <a href="<?= create_url('help') ?>"><span class="glyphicon glyphicon-flag"></span></a></th>
 						<th>Цена, руб.</th>
 						<th>Количество</th>
 						<th>Сумма, руб.</th>
@@ -119,7 +114,7 @@ Yii::app()->db->createCommand("DELETE FROM cart WHERE created < DATE_SUB(NOW(), 
 		  		</tbody>
 			</table>
 		</div>
-		<p><span class="label label-warning">Внимание!</span> Уважаемый покупатель, если Вы редактировали позиции, то убедитесь, пожалуйста, что вы нажимали кнопку «<span class="glyphicon glyphicon-pencil"></span> Обновить» напротив каждой отредактированной позиции и если неуверены нажмите ее еще раз. При нажатии этой кнопки параметры футболки, которую вы хотите купить редактируются на сервере, чтобы при переходе на страницу <a href="order.php">оформления заказа</a> они не потерялись.</p>
+		<p><span class="label label-warning">Внимание!</span> Уважаемый покупатель, если Вы редактировали позиции, то убедитесь, пожалуйста, что вы нажимали кнопку «<span class="glyphicon glyphicon-pencil"></span> Обновить» напротив каждой отредактированной позиции и если неуверены нажмите ее еще раз. При нажатии этой кнопки параметры футболки, которую вы хотите купить редактируются на сервере, чтобы при переходе на страницу <a href="<?= create_url('order') ?>">оформления заказа</a> они не потерялись.</p>
 		<p>
 			<button type="button" class="btn btn-info btn-order pull-right">
 				<span class="glyphicon glyphicon-heart"></span> Оформить заказ
@@ -132,7 +127,7 @@ Yii::app()->db->createCommand("DELETE FROM cart WHERE created < DATE_SUB(NOW(), 
 	    <?php } ?>
 	</div>
 	<?php } ?>
-	<div class="alert alert-info"<?= !empty($rows) ? ' style="display: none;"' : ''?>>В Вашей корзине пока пусто. Перейдите, пожалуйста, в <a href="/<?= get_base_url($page); ?>" style="white-space: nowrap;"><span class="glyphicon glyphicon-link"></span> каталог</a> для выбора футболки, которая Вам понравится и положите ее в Вашу корзину нажав на кнопку «Положить в корзину» рядом с каждой футболкой.</div>
+	<div class="alert alert-info"<?= !empty($rows) ? ' style="display: none;"' : ''?>>В Вашей корзине пока пусто. Перейдите, пожалуйста, в <a href="<?= create_url('/') ?>" style="white-space: nowrap;"><span class="glyphicon glyphicon-link"></span> каталог</a> для выбора футболки, которая Вам понравится и положите ее в Вашу корзину нажав на кнопку «Положить в корзину» рядом с каждой футболкой.</div>
 	<br><br>
 </div>
 <!-- Modal cart -->
@@ -152,4 +147,3 @@ Yii::app()->db->createCommand("DELETE FROM cart WHERE created < DATE_SUB(NOW(), 
 		</div><!-- /.modal-content -->
 	</div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-<?php require_once 'chunks/footer.php' ?>

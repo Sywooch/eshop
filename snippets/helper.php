@@ -14,9 +14,18 @@ function get_hash_for_sql() {
 		)
 	);
 }
-function get_base_url($page) {
-	return substr($page, 0, strrpos($page, '/'));
+function get_absolute_url() {
+	return Yii::app()->request->hostInfo;
 }
-function is_current($page, $needle) {
-	return strrpos($page, $needle) !== false;
+function is_current($needle) {
+	return strrpos(Yii::app()->getUrlManager()->parseUrl(Yii::app()->getRequest()), $needle) !== false;
+}
+function create_url($page, $hash = null) {
+	$params = array();
+	if($hash !== null) {
+		$params = array(
+			'#' => ltrim($hash, '#')
+		);
+	}
+	return get_absolute_url() . Yii::app()->getUrlManager()->createUrl($page, $params);
 }

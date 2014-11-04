@@ -13,7 +13,12 @@ return [
 		],
 		'session' => [
 			'timeout' => 3600 * 24
-		]
+		],
+		'urlManager' => [
+			'urlFormat' => 'path',
+			'showScriptName' => false,
+			'urlSuffix' => '.html'
+		],
 	],
 	'params' => [
 		'phone' => '',
@@ -21,5 +26,18 @@ return [
 		'VK.init.apiId' => 0, // http://vk.com/dev/Like
 		'VK.Widgets.Group' => 0, // http://vk.com/dev/Community
 		'VK.group' => '', // example: https://vk.com/dev.earthperson
+		'pages' => [
+			'/' => 'Каталог',
+			'cart' => 'Корзина',
+			'how-to-buy' => 'Где и как купить футболку',
+			'shipping' => 'Условия и способы доставки',
+			'vip' => 'Заказать свой вариант дизайна',
+			'payment' => 'Способы оплаты',
+			'help' => 'Таблицы размеров футболок',
+			'about' => 'О компании',
+			'public-offer' => 'Публичная оферта',
+			'feedback' => 'Обратная связь',
+			'sitemap' => 'Карта сайта',
+		]
 	],
 ];

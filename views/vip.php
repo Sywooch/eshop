@@ -1,7 +1,4 @@
-<?php
-$title = 'Заказать свой вариант дизайна футболки';
-require_once 'chunks/head.php';
-require_once 'chunks/menu.php';
+<?php 
 Yii::import('application.snippets.models.VipForm');
 $model = new VipForm;
 $model->setAttributes($_POST);
@@ -61,4 +58,3 @@ $model->setAttributes($_POST);
 	<div class="alert alert-success">Спасибо, что заказали свой вариант дизайна футболок от  <?= CHtml::encode(Yii::app()->name); ?>!</div>
 	<?php } ?>
 </div>
-<?php require_once 'chunks/footer.php' ?>

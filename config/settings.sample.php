@@ -10,7 +10,7 @@
 | is less efficient because it keeps many internal logs. On the other hand, debug mode is also more helpful 
 | during the development stage because it provides richer debugging information when an error occurs. 
 | 
-| Remove or comment out the following line when in production mode
+| Remove or comment out the following line when in production mode!
 |
 */
 defined('YII_DEBUG') or define('YII_DEBUG', true);

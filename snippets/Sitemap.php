@@ -42,10 +42,10 @@ class Sitemap implements Iterator
 		$dom = new DOMDocument('1.0', 'UTF-8');
 		$urlset = $dom->createElement('urlset');
 		$urlset->setAttribute('xmlns', 'http://www.sitemaps.org/schemas/sitemap/0.9');
-		foreach ($this->items as $k => $v) {
+		while(list($page) = each($this->items)) {
 			$url = $dom->createElement('url');
 			$loc = $dom->createElement('loc');
-			$loc->appendChild($dom->createTextNode(create_url($k)));
+			$loc->appendChild($dom->createTextNode(create_url($page)));
 			$url->appendChild($loc);
 			$lastmod = $dom->createElement('lastmod');
 			$lastmod->appendChild($dom->createTextNode(date('Y-m-d')));

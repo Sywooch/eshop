@@ -10,7 +10,7 @@ if(isset(Yii::app()->params['pages'][$route])) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="<?= Yii::app()->language ?>">
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">

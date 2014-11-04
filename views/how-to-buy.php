@@ -5,11 +5,11 @@
 	<p>Приобрести футболку можно следующими способами:</p>
 	<ol>
 		<li>Воспользовавшись этим сайтом (подробные инструкции см. ниже);</li>
-		<li>Написав сообщение администраторам <a href="<?= Yii::app()->params['VK.group']; ?>" target="_blank"><img src="images/vk.com.jpg" width="16" height="16" alt="" title="Группа ВКонтакте"></a> <a href="<?= Yii::app()->params['VK.group']; ?>" target="_blank">группы ВКонтакте</a>;</li>
-		<li>Позвонив по телефону <em><?= Yii::app()->params['phone']; ?></em>;</li>
-		<li>Написав письмо на почту <?= Yii::app()->params['email']; ?> в свободной форме с указанием Ваших координат и ФИО.</li>
+		<li>Написав сообщение администраторам <a href="<?= Yii::app()->params['VK.group'] ?>" target="_blank"><img src="images/vk.com.jpg" width="16" height="16" alt="" title="Группа ВКонтакте"></a> <a href="<?= Yii::app()->params['VK.group'] ?>" target="_blank">группы ВКонтакте</a>;</li>
+		<li>Позвонив по телефону <em><?= Yii::app()->params['phone'] ?></em>;</li>
+		<li>Написав письмо на почту <?= Yii::app()->params['email'] ?> в свободной форме с указанием Ваших координат и ФИО.</li>
 	</ol>
-	<p>Отзывы о нас читайте на стене <a href="<?= Yii::app()->params['VK.group']; ?>" target="_blank"><img src="images/vk.com.jpg" width="16" height="16" alt="" title="Группа ВКонтакте"></a> <a href="<?= Yii::app()->params['VK.group']; ?>" target="_blank">группы ВКонтакте</a>.</p>
+	<p>Отзывы о нас читайте на стене <a href="<?= Yii::app()->params['VK.group'] ?>" target="_blank"><img src="images/vk.com.jpg" width="16" height="16" alt="" title="Группа ВКонтакте"></a> <a href="<?= Yii::app()->params['VK.group'] ?>" target="_blank">группы ВКонтакте</a>.</p>
 	<h2>Подробные инструкции по использованию сайта</h2>
 	<p><span class="label label-info">Внимание!</span> Вы можете просмотреть <a href="#" class="how-to-buy-video"><span class="glyphicon glyphicon-flag"></span> видео</a> и <a href="#" class="how-to-buy-gallery"><span class="glyphicon glyphicon-flag"></span> галерею скриншотов</a> процесса покупки.</p>
 	<ul>
@@ -23,7 +23,7 @@
 		<li>Нажмите «Отправить заказ» и Ваш заказ будет отправлен менеджеру. В случае, если Вы верно указали свои контактные данные и ФИО менеджер перезвонит или отпишется Вам в удобное для Вас время;</li>
 		<li>Также вы можете оформить заказ у наших партнеров и распространителей флаеров;</li>
 		<li>Вы можете внести предоплату через этот сайт. Подробнее читайте на странице <a href="<?= create_url('payment') ?>">Способы оплаты</a>.</li>
-		<li>Спасибо, что выбрали футболки от  <?= CHtml::encode(Yii::app()->name); ?>. В этих футболках у Вас всегда будет хорошее настроение!</li>
+		<li>Спасибо, что выбрали футболки от  <?= CHtml::encode(Yii::app()->name) ?>. В этих футболках у Вас всегда будет хорошее настроение!</li>
 	</ul>
 </div>
 <div id="links" style="display: none;">

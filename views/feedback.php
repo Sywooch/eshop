@@ -11,9 +11,9 @@ $model->setAttributes($_POST);
 	<p>Способы обратной связи:</p>
 	<ol>
 		<li>Воспользоваться формой обратной связи на этой странице;</li>
-		<li>Написать сообщение администраторам <a href="<?= Yii::app()->params['VK.group']; ?>" target="_blank"><img src="images/vk.com.jpg" width="16" height="16" alt="" title="Группа ВКонтакте"></a> <a href="<?= Yii::app()->params['VK.group']; ?>" target="_blank">группы ВКонтакте</a>;</li>
-		<li>Позвонить по телефону <em><?= Yii::app()->params['phone']; ?></em>;</li>
-		<li>Написать письмо на почту <?= Yii::app()->params['email']; ?> в свободной форме с указанием Ваших координат и ФИО.</li>
+		<li>Написать сообщение администраторам <a href="<?= Yii::app()->params['VK.group'] ?>" target="_blank"><img src="images/vk.com.jpg" width="16" height="16" alt="" title="Группа ВКонтакте"></a> <a href="<?= Yii::app()->params['VK.group'] ?>" target="_blank">группы ВКонтакте</a>;</li>
+		<li>Позвонить по телефону <em><?= Yii::app()->params['phone'] ?></em>;</li>
+		<li>Написать письмо на почту <?= Yii::app()->params['email'] ?> в свободной форме с указанием Ваших координат и ФИО.</li>
 	</ol>
 	<div class="well">
 		<h3 class="text-info">Форма обратной связи</h3>

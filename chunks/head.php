@@ -33,7 +33,7 @@ if(isset(Yii::app()->params['pages'][$route])) {
 		<script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>
 		<script type="text/javascript" src="//vk.com/js/api/openapi.js?113"></script>
 		<script type="text/javascript">
-		VK.init({apiId: <?= Yii::app()->params['VK.init.apiId']; ?>, onlyWidgets: true});
+		VK.init({apiId: <?= Yii::app()->params['VK.init.apiId'] ?>, onlyWidgets: true});
 		</script>
 		<script type="text/javascript">
 			var eshop = {"order": "<?= create_url('order') ?>"};

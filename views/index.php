@@ -89,7 +89,7 @@
 				<div class="form-group">
 					<div class="checkbox">
 						<label>
-							<input type="checkbox" id="cart-item-printpromolink"> Ссылка на <a href="<?= Yii::app()->params['VK.group']; ?>" target="_blank">группу ВКонтакте</a> в правом нижнем углу футболки (<span style="white-space: nowrap;"><em>-10%</em> стоимости</span>).
+							<input type="checkbox" id="cart-item-printpromolink"> Ссылка на <a href="<?= Yii::app()->params['VK.group'] ?>" target="_blank">группу ВКонтакте</a> в правом нижнем углу футболки (<span style="white-space: nowrap;"><em>-10%</em> стоимости</span>).
 						</label>
 					</div>
 				</div>

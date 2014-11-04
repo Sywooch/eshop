@@ -25,7 +25,7 @@ $validate = $model->validate();
 	<?php if(empty($_POST) or !$validate) { ?>
 	<p>Итак, уважаемый Покупатель, вы проделали следующие действия:</p>
 	<ul>
-		<li>Заполнили <a href="<?= create_url('cart') ?>">Вашу корзину</a> футболками от  <?= CHtml::encode(Yii::app()->name); ?> и при необходимости сверились с <a href="<?= create_url('help') ?>">таблицей размеров</a>;</li>
+		<li>Заполнили <a href="<?= create_url('cart') ?>">Вашу корзину</a> футболками от  <?= CHtml::encode(Yii::app()->name) ?> и при необходимости сверились с <a href="<?= create_url('help') ?>">таблицей размеров</a>;</li>
 		<li>Ознакомились с <a href="<?= create_url('shipping') ?>">условиями и способами доставки</a>;</li>
 		<li>Ознакомились со <a href="<?= create_url('payment') ?>">способами оплаты</a>;</li>
 		<li>Прочитали <a href="<?= create_url('public-offer') ?>">публичную оферту</a>.</li>
@@ -68,6 +68,6 @@ $validate = $model->validate();
 	<?php } else {  
 		require_once 'snippets/order.php';
 	?>
-	<div class="alert alert-success">Ваш заказ №<?= $order_id ?> успешно отправлен. Спасибо, что заказали футболки от  <?= CHtml::encode(Yii::app()->name); ?>!</div>
+	<div class="alert alert-success">Ваш заказ №<?= $order_id ?> успешно отправлен. Спасибо, что заказали футболки от  <?= CHtml::encode(Yii::app()->name) ?>!</div>
 	<?php } ?>
 </div>

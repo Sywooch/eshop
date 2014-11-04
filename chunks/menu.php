@@ -58,7 +58,7 @@
 						<?php if(!is_current('about')) { ?>
 						<li><a href="<?= create_url('about') ?>">О компании</a></li>
 						<?php } ?>
-						<li><a href="<?= Yii::app()->params['VK.group']; ?>" target="_blank">Группа ВКонтакте</a></li>
+						<li><a href="<?= Yii::app()->params['VK.group'] ?>" target="_blank">Группа ВКонтакте</a></li>
 						<?php if(!is_current('sitemap')) { ?>
 						<li class="divider"></li>
 						<li><a href="<?= create_url('sitemap') ?>">Карта сайта</a></li>
@@ -66,7 +66,7 @@
 					</ul>
 				</li>
 			</ul>
-			<span class="pull-right">Телефон: <?= Yii::app()->params['phone']; ?></span>
+			<span class="pull-right">Телефон: <?= Yii::app()->params['phone'] ?></span>
 		</div><!--/.nav-collapse -->
 	</div>
 </div>

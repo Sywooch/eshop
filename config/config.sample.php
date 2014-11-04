@@ -26,6 +26,7 @@ return [
 		'VK.init.apiId' => 0, // http://vk.com/dev/Like
 		'VK.Widgets.Group' => 0, // http://vk.com/dev/Community
 		'VK.group' => '', // example: https://vk.com/dev.earthperson
+		'description' => 'Простой каркас для интернет-магазина',
 		'pages' => [
 			'/' => 'Каталог',
 			'cart' => 'Корзина',

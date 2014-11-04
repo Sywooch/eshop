@@ -16,7 +16,7 @@ if(isset(Yii::app()->params['pages'][$route])) {
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title><?= CHtml::encode(Yii::app()->name) . (isset($title) ? CHtml::encode(' | ' . $title) : '') ?></title>
-		<meta name="description" content="<?= CHtml::encode(isset($description) ? $description : Yii::app()->name) ?>">
+		<meta name="description" content="<?= CHtml::encode(isset(Yii::app()->params['description']) ? Yii::app()->params['description'] : Yii::app()->name) ?>">
 		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 		<!-- Bootstrap -->
 		<link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">

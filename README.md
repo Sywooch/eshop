@@ -2,9 +2,9 @@
 =======
 [![Latest Stable Version](https://poser.pugx.org/earthperson/eshop/v/stable.svg)](https://packagist.org/packages/earthperson/eshop) [![Latest Unstable Version](https://poser.pugx.org/earthperson/eshop/v/unstable.svg)](https://packagist.org/packages/earthperson/eshop) [![License](https://poser.pugx.org/earthperson/eshop/license.svg)](https://packagist.org/packages/earthperson/eshop)
 
-[Very simple eshop](http://earthperson.github.io/eshop/). As an example - the catalog of T-shirts.
+[Very simple, programmers oriented eshop](http://earthperson.github.io/eshop/). As an example - the catalog of T-shirts.
 
-*[phpMyAdmin](http://www.phpmyadmin.net/) or similar tool and a text editor as the Dashboard, a [payment system](https://money.yandex.ru/get/) or bank details as tools to accept payments.*
+*[phpMyAdmin](http://www.phpmyadmin.net/) or similar tool and a text editor as the Dashboard, ImageMagick for photos, a [payment system](https://money.yandex.ru/get/) or bank details as tools to accept payments.*
 
 ## Server Requirements
 

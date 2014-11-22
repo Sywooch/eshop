@@ -4,7 +4,7 @@
 
 [Very simple, programmers oriented eshop](http://earthperson.github.io/eshop/). As an example - the catalog of T-shirts.
 
-*[phpMyAdmin](http://www.phpmyadmin.net/) or similar tool and a text editor as the Dashboard, ImageMagick for photos, a [payment system](https://money.yandex.ru/get/) or bank details as tools to accept payments.*
+*[phpMyAdmin](http://www.phpmyadmin.net/) or similar tool and a text editor as the Dashboard, [ImageMagick](http://www.imagemagick.org/) for photos, a [payment system](https://money.yandex.ru/get/) or bank details as tools to accept payments.*
 
 ## Server Requirements
 

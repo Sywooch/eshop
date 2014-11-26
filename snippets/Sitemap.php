@@ -10,7 +10,7 @@ class Sitemap implements Iterator
 	
 	protected $priority = 0.5;
 	
-	protected $items = array();
+	protected $items = [];
 	
 	public function __construct() {
 		$this->items = Yii::app()->params['pages'];

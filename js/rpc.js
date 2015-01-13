@@ -119,6 +119,7 @@ $(document).ready(function() {
 	// Delete from cart
 	$('button[id^="cart-id-"]').click(function() {
 		$this = $(this);
+		$this.button('loading');
 		$.post(url, {
 			'action': 'd', 
 			'id': getId($(this))
@@ -137,13 +138,16 @@ $(document).ready(function() {
 					$('#back-to-top').parent().remove();
 				}
 			}
+			$this.button('reset');
 		},
 		'json');
 	});
 	
 	// Update cart
 	$('button[id^="cart-idu-"]').click(function() {
+		$this = $(this);
 		var id = getId($(this));
+		$this.button('loading');
 		$.post(url, {
 			'action': 'e', 
 			'id': id,
@@ -160,6 +164,7 @@ $(document).ready(function() {
 				$('#cart-item-price-amount-' + id + '').text(data['priceamount']);
 				$('#cart-total').text(data['total']);
 			}
+			$this.button('reset');
 		},
 		'json');
 	});

@@ -96,10 +96,10 @@
 						<td>
 							<form class="form-inline" role="form">
 								<div class="form-group">
-									<button class="btn btn-sm btn-primary" type="button" id="cart-idu-<?= $row['id'] ?>">
+									<button class="btn btn-sm btn-primary" type="button" data-loading-text="Обновляю..." id="cart-idu-<?= $row['id'] ?>">
 										<span class="glyphicon glyphicon-pencil"></span> Обновить
 									</button>
-									<button class="btn btn-sm btn-danger" type="button" id="cart-id-<?= $row['id'] ?>">
+									<button class="btn btn-sm btn-danger" type="button" data-loading-text="Удаляю..." id="cart-id-<?= $row['id'] ?>">
 										<span class="glyphicon glyphicon-remove"></span> Удалить
 									</button>
 								</div>

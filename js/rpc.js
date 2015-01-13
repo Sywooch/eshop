@@ -40,6 +40,8 @@ $(document).ready(function() {
 	
 	// Add to cart
 	$('#push-to-cart').click(function() {
+		$this = $(this);
+		$this.button('loading');
 		var amount = $.trim($('#cart-item-amount').val());
 		$.post(url, {
 			'action': 'b', 
@@ -67,12 +69,15 @@ $(document).ready(function() {
 				$('#modalCart .var-error').show();
 			}
 			$('#modalCart').modal();
+			$this.button('reset');
 		},
 		'json');
 	});
 	
 	// Push to cart
 	$('button[id^="item-id-"]').click(function() {
+		$this = $(this);
+		$this.button('loading');
 		$.post(url, {
 			'action': 'c', 
 			'item_id': getId($(this))
@@ -88,12 +93,15 @@ $(document).ready(function() {
 				$('#modalCart .var-error').show();
 			}
 			$('#modalCart').modal();
+			$this.button('reset');
 		},
 		'json');
 	});
 	
 	$("#blueimp-gallery").on('slide', function (event, index, slide) {
 		$('.add-to-cart').unbind().click(function() {
+			$this = $(this);
+			$this.button('loading');
 			var id = $(this).parents('.modal-content').find('img').attr('src').match(/\?(\d+)$/)[1];
 			$.post(url, {
 				'action': 'c', 
@@ -111,6 +119,7 @@ $(document).ready(function() {
 				}
 				$('#modalCart').css({'z-index': $('#blueimp-gallery').css('z-index') + 1});
 				$('#modalCart').modal();
+				$this.button('reset');
 			},
 			'json');
 		});
@@ -119,6 +128,7 @@ $(document).ready(function() {
 	// Delete from cart
 	$('button[id^="cart-id-"]').click(function() {
 		$this = $(this);
+		$this.button('loading');
 		$.post(url, {
 			'action': 'd', 
 			'id': getId($(this))
@@ -137,13 +147,16 @@ $(document).ready(function() {
 					$('#back-to-top').parent().remove();
 				}
 			}
+			$this.button('reset');
 		},
 		'json');
 	});
 	
 	// Update cart
 	$('button[id^="cart-idu-"]').click(function() {
+		$this = $(this);
 		var id = getId($(this));
+		$this.button('loading');
 		$.post(url, {
 			'action': 'e', 
 			'id': id,
@@ -160,6 +173,7 @@ $(document).ready(function() {
 				$('#cart-item-price-amount-' + id + '').text(data['priceamount']);
 				$('#cart-total').text(data['total']);
 			}
+			$this.button('reset');
 		},
 		'json');
 	});

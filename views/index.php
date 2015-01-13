@@ -35,7 +35,7 @@
 						<div class="carousel-caption">
 							<h4><?= CHtml::encode($row['name']) ?></h4>
 							<h4><?= price_format($row['price']) ?> руб.</h4>
-							<button type="button" class="btn btn-sm btn-primary" id="item-id-a-<?= $row['id'] ?>" data-loading-text="Добавляю...">
+							<button type="button" class="btn btn-sm btn-primary" id="item-id-a-<?= $row['id'] ?>" data-loading-text="Добавляю&hellip;">
 								<span class="glyphicon glyphicon-shopping-cart"></span> Положить в корзину
 							</button>
 						</div>
@@ -108,7 +108,7 @@
 				<button type="button" class="btn btn-default">Проверить</button>
 				<br><br>
 			</form>
-			<button type="button" class="btn btn-primary" id="push-to-cart" data-loading-text="Добавляю...">
+			<button type="button" class="btn btn-primary" id="push-to-cart" data-loading-text="Добавляю&hellip;">
 				<span class="glyphicon glyphicon-shopping-cart"></span> Положить в корзину
 			</button>
 			<hr>
@@ -150,7 +150,7 @@
 						</div>
 						<div class="modal-body next"></div>
 						<div class="modal-footer">
-							<button type="button" class="btn btn-primary add-to-cart" data-loading-text="Добавляю...">
+							<button type="button" class="btn btn-primary add-to-cart" data-loading-text="Добавляю&hellip;">
 								<span class="glyphicon glyphicon-shopping-cart"></span> Положить в корзину
 							</button>
 						</div>

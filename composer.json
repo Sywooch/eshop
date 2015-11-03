@@ -6,7 +6,7 @@
 	"license": "MIT",
 	"type": "project",
 	"require": {
-		"yiisoft/yii": "~1.1",
+		"yiisoft/yii2": "2",
 		"phpmailer/phpmailer": "~5.2"
 	}
 }

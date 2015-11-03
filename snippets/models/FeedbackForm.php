@@ -3,7 +3,7 @@
  * FeedbackForm class.
  * FeedbackForm is the data structure for keeping feedback form data.
  */
-class FeedbackForm extends CFormModel
+class FeedbackForm extends Model
 {
 	public $fio;
 	public $email;

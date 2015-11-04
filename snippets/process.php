@@ -1,7 +1,7 @@
 <?php 
 require_once '../config/settings.php';
 require_once FRAMEWORK_PATH;
-Yii::createWebApplication('../config/config.php');
+new yii\web\Application(require_once('../config/config.php'));
 require_once 'helper.php';
 if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest') {
 	ini_set('display_errors', 0);

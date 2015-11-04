@@ -1,7 +1,7 @@
 <?php 
 require_once 'config/settings.php';
 require_once FRAMEWORK_PATH;
-Yii::createWebApplication('config/config.php');
+new yii\web\Application(require_once('config/config.php'));
 require_once 'snippets/helper.php';
 $hash = get_hash_for_sql();
 $route = Yii::app()->getUrlManager()->parseUrl(Yii::app()->getRequest());

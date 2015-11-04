@@ -1,5 +1,6 @@
 <?php
 return [
+	'id' => 'basic',
 	'language' => 'ru',
 	'basePath' => dirname(dirname(__FILE__)),
 	'name' => 'eshop',

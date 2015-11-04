@@ -1,26 +1,9 @@
 <?php 
-/*
-|--------------------------------------------------------------------------
-| Debug Mode
-|--------------------------------------------------------------------------
-|
-| A Yii application can run in either debug or production mode, as determined by the value of the constant
-| YII_DEBUG. By default, this constant value is defined as false, meaning production mode. To run in debug
-| mode, define this constant as true before including the yii.php file. Running the application in debug mode
-| is less efficient because it keeps many internal logs. On the other hand, debug mode is also more helpful 
-| during the development stage because it provides richer debugging information when an error occurs. 
-| 
-| Remove or comment out the following line when in production mode!
-|
-*/
+// specifies whether the application is running in debug mode. When in debug mode, an application will keep more log information, and will reveal detailed error call stacks if exceptions are thrown. For this reason, debug mode should be used mainly during development. The default value of YII_DEBUG is false
 defined('YII_DEBUG') or define('YII_DEBUG', true);
 
-/*
-|--------------------------------------------------------------------------
-| Path to Yii Framework yii.php
-|--------------------------------------------------------------------------
-|
-| From root directory of the entire file system hierarchy!
-|
-*/
-define('FRAMEWORK_PATH', '/path/to/yii/framework/yii.php');
+// specifies which environment the application is running in. This will be described in more detail in the Configurations section. The default value of YII_ENV is 'prod', meaning the application is running in production environment
+defined('YII_ENV') or define('YII_ENV', 'dev');
+
+// Path to Yii Framework from root directory of the entire file system hierarchy!
+define('FRAMEWORK_PATH', '/path/to/yiisoft/yii2/Yii.php');

@@ -5,5 +5,5 @@ defined('YII_DEBUG') or define('YII_DEBUG', true);
 // specifies which environment the application is running in. This will be described in more detail in the Configurations section. The default value of YII_ENV is 'prod', meaning the application is running in production environment
 defined('YII_ENV') or define('YII_ENV', 'dev');
 
-// Path to Yii Framework from root directory of the entire file system hierarchy!
+// path to Yii Framework from root directory of the entire file system hierarchy!
 define('FRAMEWORK_PATH', '/path/to/yiisoft/yii2/Yii.php');

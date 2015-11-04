@@ -8,7 +8,7 @@
 
 ## Server Requirements
 
-Web server with PHP, [Yii Framework components](https://github.com/yiisoft/yii) and database that is supported by Yii Framework.
+Web server with PHP, [Yii Framework components](https://github.com/yiisoft/yii2) and database that is supported by Yii Framework.
 
 ## Installation
 

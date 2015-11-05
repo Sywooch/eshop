@@ -13,7 +13,7 @@ class Sitemap implements Iterator
 	protected $items = [];
 	
 	public function __construct() {
-		$this->items = Yii::app()->params['pages'];
+		$this->items = Yii::$app->params['pages'];
 		$this->saveXML();
 		return $this;
 	}

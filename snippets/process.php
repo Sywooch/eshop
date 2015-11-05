@@ -1,7 +1,5 @@
 <?php 
-require_once '../config/settings.php';
-require_once FRAMEWORK_PATH;
-new yii\web\Application(require_once('../config/config.php'));
+require_once '../config/init.php';
 require_once 'helper.php';
 if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest') {
 	ini_set('display_errors', 0);
@@ -36,11 +34,11 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH']
 			$promocode = trim($_POST['promocode']);
 			$response = ['status' => 0];
 			if($promocode != '') {
-				if(Yii::app()->db->createCommand("UPDATE promocode SET isused = 1 WHERE id = " . Yii::app()->db->quoteValue($promocode))->execute()) {
-					Yii::app()->db->createCommand("INSERT INTO promocode_hash (promocode_id, cart_hash) VALUES (" . Yii::app()->db->quoteValue($promocode) . ", {$hash})")->execute();
+				if(Yii::$app->db->createCommand("UPDATE promocode SET isused = 1 WHERE id = " . Yii::$app->db->quoteValue($promocode))->execute()) {
+					Yii::$app->db->createCommand("INSERT INTO promocode_hash (promocode_id, cart_hash) VALUES (" . Yii::$app->db->quoteValue($promocode) . ", {$hash})")->execute();
 					$response = ['status' => 1];
 				}
-				elseif(Yii::app()->db->createCommand("SELECT COUNT(promocode_id) FROM promocode_hash WHERE promocode_id = " . Yii::app()->db->quoteValue($promocode) . " AND cart_hash = {$hash} LIMIT 1")->queryScalar() > 0) {
+				elseif(Yii::$app->db->createCommand("SELECT COUNT(promocode_id) FROM promocode_hash WHERE promocode_id = " . Yii::$app->db->quoteValue($promocode) . " AND cart_hash = {$hash} LIMIT 1")->queryScalar() > 0) {
 					$response = ['status' => 1];
 				}
 			}
@@ -60,24 +58,24 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH']
 				$response = ['status' => 0, 'reason' => 'amount'];
 			}
 			if(empty($response)) {
-				$result = Yii::app()->db->createCommand("
+				$result = Yii::$app->db->createCommand("
 			 		INSERT INTO cart (
 			 			hash, item_id, size, amount, inscription, printpromolink, created
 			 		)
 			 		VALUES (
 			 			{$hash},
 						{$item_id},
-			 			" . Yii::app()->db->quoteValue($size) . ",
+			 			" . Yii::$app->db->quoteValue($size) . ",
 			 			{$amount},
-			 			" . Yii::app()->db->quoteValue($inscription) . ",
+			 			" . Yii::$app->db->quoteValue($inscription) . ",
 			 			{$printpromolink},
 			 			" . new CDbExpression('NOW()') . "
 			 		)" // ON DUPLICATE KEY UPDATE
 				)->execute();
 				$response = [
 					'status' => $result,
-					'count' => Yii::app()->db->createCommand("SELECT COUNT(id) FROM cart WHERE hash = {$hash}")->queryScalar(),
-					'sum' => (int)Yii::app()->db->createCommand("SELECT SUM(amount) FROM cart WHERE hash = {$hash}")->queryScalar(),
+					'count' => Yii::$app->db->createCommand("SELECT COUNT(id) FROM cart WHERE hash = {$hash}")->queryScalar(),
+					'sum' => (int)Yii::$app->db->createCommand("SELECT SUM(amount) FROM cart WHERE hash = {$hash}")->queryScalar(),
 				];
 			}
 		}
@@ -85,7 +83,7 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH']
 		// Push to cart
 		elseif($_POST['action'] == 'c') {
 			$item_id = (int)$_POST['item_id'];
-			$result = Yii::app()->db->createCommand("
+			$result = Yii::$app->db->createCommand("
 					INSERT INTO cart (hash, item_id, created)
 			 		VALUES (
 			 			{$hash},
@@ -93,23 +91,23 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH']
 			 			" . new CDbExpression('NOW()') . "
 			 		)" // ON DUPLICATE KEY UPDATE
 			)->execute();
-			Yii::app()->db->createCommand("UPDATE cart SET amount=amount+1 WHERE id = " . Yii::app()->db->lastInsertID)->execute() . " AND hash = {$hash}";
+			Yii::$app->db->createCommand("UPDATE cart SET amount=amount+1 WHERE id = " . Yii::$app->db->lastInsertID)->execute() . " AND hash = {$hash}";
  			$response = [
  				'status' => $result,
- 				'count' => Yii::app()->db->createCommand("SELECT COUNT(id) FROM cart WHERE hash = {$hash}")->queryScalar(),
- 				'sum' => (int)Yii::app()->db->createCommand("SELECT SUM(amount) FROM cart WHERE hash = {$hash}")->queryScalar(),
+ 				'count' => Yii::$app->db->createCommand("SELECT COUNT(id) FROM cart WHERE hash = {$hash}")->queryScalar(),
+ 				'sum' => (int)Yii::$app->db->createCommand("SELECT SUM(amount) FROM cart WHERE hash = {$hash}")->queryScalar(),
  			];
 		}
 		
 		// Delete from cart
 		elseif($_POST['action'] == 'd') {
 			$id = (int)$_POST['id'];
-			$result = Yii::app()->db->createCommand("DELETE FROM cart WHERE id = {$id} AND hash = {$hash}")->execute();
+			$result = Yii::$app->db->createCommand("DELETE FROM cart WHERE id = {$id} AND hash = {$hash}")->execute();
 			$response = [
 				'status' => $result,
-				'count' => Yii::app()->db->createCommand("SELECT COUNT(id) FROM cart WHERE hash = {$hash}")->queryScalar(),
-				'sum' => (int)Yii::app()->db->createCommand("SELECT SUM(amount) FROM cart WHERE hash = {$hash}")->queryScalar(),
-				'total' => price_format(Yii::app()->db->createCommand("
+				'count' => Yii::$app->db->createCommand("SELECT COUNT(id) FROM cart WHERE hash = {$hash}")->queryScalar(),
+				'sum' => (int)Yii::$app->db->createCommand("SELECT SUM(amount) FROM cart WHERE hash = {$hash}")->queryScalar(),
+				'total' => price_format(Yii::$app->db->createCommand("
 					SELECT SUM(price * amount) FROM cart 
 						INNER JOIN item ON (cart.item_id = item.id)
 					WHERE hash = {$hash}")->queryScalar()),
@@ -132,16 +130,16 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH']
 			if(isset($_POST['printpromolink'])) {
 				$set .= (", printpromolink = " . ((int)$_POST['printpromolink'] == 1 ? '1' : '0') . " ");
 			}
-			$result = Yii::app()->db->createCommand("UPDATE cart SET {$set} WHERE id = {$id} AND hash = {$hash}")->execute();
+			$result = Yii::$app->db->createCommand("UPDATE cart SET {$set} WHERE id = {$id} AND hash = {$hash}")->execute();
 			$response = [
 				'status' => $result,
-				'count' => Yii::app()->db->createCommand("SELECT COUNT(id) FROM cart WHERE hash = {$hash}")->queryScalar(),
-				'sum' => (int)Yii::app()->db->createCommand("SELECT SUM(amount) FROM cart WHERE hash = {$hash}")->queryScalar(),
-				'priceamount' => price_format(Yii::app()->db->createCommand("
+				'count' => Yii::$app->db->createCommand("SELECT COUNT(id) FROM cart WHERE hash = {$hash}")->queryScalar(),
+				'sum' => (int)Yii::$app->db->createCommand("SELECT SUM(amount) FROM cart WHERE hash = {$hash}")->queryScalar(),
+				'priceamount' => price_format(Yii::$app->db->createCommand("
 						SELECT price * amount FROM cart
 						INNER JOIN item ON (cart.item_id = item.id)
 						WHERE cart.id = {$id} AND hash = {$hash}")->queryScalar()),
-				'total' => price_format(Yii::app()->db->createCommand("
+				'total' => price_format(Yii::$app->db->createCommand("
 						SELECT SUM(price * amount) FROM cart
 						INNER JOIN item ON (cart.item_id = item.id)
 						WHERE hash = {$hash}")->queryScalar()),
@@ -152,7 +150,7 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH']
 			$set = "modified = " . new CDbExpression('NOW()');
 			$id = (int)$_POST['id'];
 			$inscription = trim($_POST['inscription']);
-			$result = Yii::app()->db->createCommand("UPDATE cart SET inscription = " . Yii::app()->db->quoteValue($inscription) . " WHERE id = {$id} AND hash = {$hash}")->execute();
+			$result = Yii::$app->db->createCommand("UPDATE cart SET inscription = " . Yii::$app->db->quoteValue($inscription) . " WHERE id = {$id} AND hash = {$hash}")->execute();
 			$response = ['status' => $result];
 		}
 		

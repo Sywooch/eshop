@@ -1,6 +1,7 @@
 <?php
-if(Yii::app()->db->createCommand("SELECT COUNT(id) FROM cart WHERE hash = {$hash}")->queryScalar() == 0) {
-	Yii::app()->request->redirect(create_url('/'));
+use yii\helpers\Html;
+if(Yii::$app->db->createCommand("SELECT COUNT(id) FROM cart WHERE hash = {$hash}")->queryScalar() == 0) {
+	Yii::$app->request->redirect(create_url('/'));
 }
 Yii::import('application.snippets.models.OrderForm');
 $model = new OrderForm;
@@ -25,7 +26,7 @@ $validate = $model->validate();
 	<?php if(empty($_POST) or !$validate) { ?>
 	<p>Итак, уважаемый Покупатель, вы проделали следующие действия:</p>
 	<ul>
-		<li>Заполнили <a href="<?= create_url('cart') ?>">Вашу корзину</a> футболками от  <?= CHtml::encode(Yii::app()->name) ?> и при необходимости сверились с <a href="<?= create_url('help') ?>">таблицей размеров</a>;</li>
+		<li>Заполнили <a href="<?= create_url('cart') ?>">Вашу корзину</a> футболками от  <?= Html::encode(Yii::$app->name) ?> и при необходимости сверились с <a href="<?= create_url('help') ?>">таблицей размеров</a>;</li>
 		<li>Ознакомились с <a href="<?= create_url('shipping') ?>">условиями и способами доставки</a>;</li>
 		<li>Ознакомились со <a href="<?= create_url('payment') ?>">способами оплаты</a>;</li>
 		<li>Прочитали <a href="<?= create_url('public-offer') ?>">публичную оферту</a>.</li>
@@ -39,7 +40,7 @@ $validate = $model->validate();
 			foreach ($errors as $k => $error) {
 				if($k == 'nospam') continue; 
 				foreach ($error as $item) { ?>
-					<p class="text-danger"><?= CHtml::encode($item) ?></p>
+					<p class="text-danger"><?= Html::encode($item) ?></p>
 				<?php }
 			}
 		}
@@ -68,6 +69,6 @@ $validate = $model->validate();
 	<?php } else {  
 		require_once 'snippets/order.php';
 	?>
-	<div class="alert alert-success">Ваш заказ №<?= $order_id ?> успешно отправлен. Спасибо, что заказали футболки от  <?= CHtml::encode(Yii::app()->name) ?>!</div>
+	<div class="alert alert-success">Ваш заказ №<?= $order_id ?> успешно отправлен. Спасибо, что заказали футболки от  <?= Html::encode(Yii::$app->name) ?>!</div>
 	<?php } ?>
 </div>

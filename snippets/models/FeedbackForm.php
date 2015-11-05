@@ -42,7 +42,7 @@ class FeedbackForm extends Model
 	}
 	
 	public function mathOperation($attribute, $params) {
-		if(Yii::app()->session['math'] != $this->$attribute) {
+		if(Yii::$app->session['math'] != $this->$attribute) {
 			$this->addError($attribute, 'Вы неправильно заполнили ответ в поле защиты от спама.');
 		}
 	}
@@ -53,7 +53,7 @@ class FeedbackForm extends Model
 			'op2' => mt_rand(1, 49),
 			'operator' => mt_rand(0, 1),
 		];
-		Yii::app()->session['math'] = $math['operator'] == 0 ? $math['op1'] - $math['op2'] : $math['op1'] + $math['op2'];
+		Yii::$app->session['math'] = $math['operator'] == 0 ? $math['op1'] - $math['op2'] : $math['op1'] + $math['op2'];
 		return $math;
 	} 
 }

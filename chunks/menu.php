@@ -1,3 +1,4 @@
+<?php use yii\helpers\Html; ?>
 <!-- Fixed navbar -->
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 	<div class="container" id="top-nav">
@@ -8,8 +9,8 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="<?= create_url('/') ?>" title="<?= CHtml::encode(Yii::app()->name) ?>">
-				<img src="images/logo.png" alt="<?= CHtml::encode(Yii::app()->name) ?>" width="72" height="32">
+			<a class="navbar-brand" href="<?= create_url('/') ?>" title="<?= Html::encode(Yii::$app->name) ?>">
+				<img src="images/logo.png" alt="<?= Html::encode(Yii::$app->name) ?>" width="72" height="32">
 			</a>
 		</div>
 		<div class="navbar-collapse collapse">
@@ -58,7 +59,7 @@
 						<?php if(!is_current('about')) { ?>
 						<li><a href="<?= create_url('about') ?>">О компании</a></li>
 						<?php } ?>
-						<li><a href="<?= Yii::app()->params['VK.group'] ?>" target="_blank">Группа ВКонтакте</a></li>
+						<li><a href="<?= Yii::$app->params['VK.group'] ?>" target="_blank">Группа ВКонтакте</a></li>
 						<?php if(!is_current('sitemap')) { ?>
 						<li class="divider"></li>
 						<li><a href="<?= create_url('sitemap') ?>">Карта сайта</a></li>
@@ -66,7 +67,7 @@
 					</ul>
 				</li>
 			</ul>
-			<span class="pull-right">Телефон: <?= Yii::app()->params['phone'] ?></span>
+			<span class="pull-right">Телефон: <?= Yii::$app->params['phone'] ?></span>
 		</div><!--/.nav-collapse -->
 	</div>
 </div>

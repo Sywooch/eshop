@@ -1,5 +1,5 @@
 config.php
-settings.php
+init.php
 sitemap.xml
 node_modules
 bower_components

@@ -1,3 +1,4 @@
+<?php use yii\helpers\Html; ?>
 <?php Yii::import('application.snippets.Sitemap') ?>
 <div class="container">
 	<div class="page-header">
@@ -5,7 +6,7 @@
 	</div>
 	<ul>
 		<?php foreach((new Sitemap) as $page => $label) { ?>
-		<li><a href="<?= create_url($page) ?>"><?= CHtml::encode($label) ?></a></li>
+		<li><a href="<?= create_url($page) ?>"><?= Html::encode($label) ?></a></li>
 		<?php } ?>
 	</ul>
 </div>

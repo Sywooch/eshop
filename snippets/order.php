@@ -1,7 +1,7 @@
 <?php
 $order_id = 0;
 
-$connection = Yii::app()->db;
+$connection = Yii::$app->db;
 $transaction = $connection->beginTransaction();
 try
 {

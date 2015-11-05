@@ -1,4 +1,5 @@
 <?php 
+use yii\helpers\Html;
 Yii::import('application.snippets.models.VipForm');
 $model = new VipForm;
 $model->setAttributes($_POST);
@@ -12,8 +13,8 @@ $model->setAttributes($_POST);
 	<p>Вы можете заказать свой вариант дизайна следующими способами:</p>
 	<ol>
 		<li>Воспользовавшись этим сайтом (заполните форму ниже);</li>
-		<li>Написав сообщение администраторам <a href="<?= Yii::app()->params['VK.group'] ?>" target="_blank"><img src="images/vk.com.jpg" width="16" height="16" alt="" title="Группа ВКонтакте"></a> <a href="<?= Yii::app()->params['VK.group'] ?>" target="_blank">группы ВКонтакте</a>;</li>
-		<li>Написав письмо на почту <?= Yii::app()->params['email'] ?> в свободной форме с указанием Ваших координат и ФИО.</li>
+		<li>Написав сообщение администраторам <a href="<?= Yii::$app->params['VK.group'] ?>" target="_blank"><img src="images/vk.com.jpg" width="16" height="16" alt="" title="Группа ВКонтакте"></a> <a href="<?= Yii::$app->params['VK.group'] ?>" target="_blank">группы ВКонтакте</a>;</li>
+		<li>Написав письмо на почту <?= Yii::$app->params['email'] ?> в свободной форме с указанием Ваших координат и ФИО.</li>
 	</ol>
 	<div class="well">
 		<h3 class="text-info">Форма заказа своего варианта дизайна футболки</h3>
@@ -23,7 +24,7 @@ $model->setAttributes($_POST);
 			foreach ($errors as $k => $error) {
 				if($k == 'nospam') continue; 
 				foreach ($error as $item) { ?>
-					<p class="text-danger"><?= CHtml::encode($item) ?></p>
+					<p class="text-danger"><?= Html::encode($item) ?></p>
 				<?php }
 			}
 		}
@@ -55,6 +56,6 @@ $model->setAttributes($_POST);
 		</form>
 	</div>
 	<?php } else { ?>
-	<div class="alert alert-success">Спасибо, что заказали свой вариант дизайна футболок от  <?= CHtml::encode(Yii::app()->name) ?>!</div>
+	<div class="alert alert-success">Спасибо, что заказали свой вариант дизайна футболок от  <?= Html::encode(Yii::$app->name) ?>!</div>
 	<?php } ?>
 </div>

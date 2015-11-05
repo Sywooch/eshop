@@ -6,7 +6,8 @@ return [
 	'name' => 'eshop',
 	'components' => [
 		'db' => [
-			'connectionString' => 'mysql:host=localhost;dbname=dbname',
+			'class' => 'yii\db\Connection',
+			'dsn' => 'mysql:host=localhost;dbname=dbname',
 			'emulatePrepare' => true,
 			'username' => '',
 			'password' => '',

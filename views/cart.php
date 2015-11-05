@@ -1,4 +1,5 @@
-<?php Yii::app()->db->createCommand("DELETE FROM cart WHERE created < DATE_SUB(NOW(), INTERVAL 2 DAY)")->execute() ?>
+<?php use yii\helpers\Html; ?>
+<?php Yii::$app->db->createCommand("DELETE FROM cart WHERE created < DATE_SUB(NOW(), INTERVAL 2 DAY)")->execute() ?>
 <div class="container">
 	<div class="page-header">
 		<div class="row">
@@ -11,7 +12,7 @@
 		</div>
 	</div>
 	<?php
-	$rows = Yii::app()->db->createCommand("
+	$rows = Yii::$app->db->createCommand("
 				SELECT *, cart.id as id FROM cart 
 					INNER JOIN item ON (cart.item_id = item.id)
 				WHERE hash = {$hash}
@@ -19,8 +20,8 @@
 	if(!empty($rows)) { ?>
 	<div id="cart-wrapper">
 		<p>
-			Позиций: <span class="badge" id="cart-count"><?= Yii::app()->db->createCommand("SELECT COUNT(id) FROM cart WHERE hash = {$hash}")->queryScalar() ?></span>,
-			Футболок: <span class="badge" id="cart-sum"><?= (int)Yii::app()->db->createCommand("SELECT SUM(amount) FROM cart WHERE hash = {$hash}")->queryScalar() ?></span>
+			Позиций: <span class="badge" id="cart-count"><?= Yii::$app->db->createCommand("SELECT COUNT(id) FROM cart WHERE hash = {$hash}")->queryScalar() ?></span>,
+			Футболок: <span class="badge" id="cart-sum"><?= (int)Yii::$app->db->createCommand("SELECT SUM(amount) FROM cart WHERE hash = {$hash}")->queryScalar() ?></span>
 		</p>
 		<p>
 			<button type="button" class="btn btn-info btn-order">
@@ -51,15 +52,15 @@
 					?>
 					<tr>
 						<td>
-							<a href="images/gallery/<?= $row['item_id'] ?>.png" class="item-image zoom-in" title="<?= CHtml::encode($row['name']) ?>">
+							<a href="images/gallery/<?= $row['item_id'] ?>.png" class="item-image zoom-in" title="<?= Html::encode($row['name']) ?>">
 								<img class="img-responsive" src="images/gallery/thumbs/<?= $row['item_id'] ?>.png" alt="" width="150"><span class="glyphicon glyphicon-zoom-in"></span>
 							</a>
 						</td>
 						<td><?= $row['item_id'] ?></td>
-						<td><?= CHtml::encode($row['name']) ?></td>
+						<td><?= Html::encode($row['name']) ?></td>
 						<td id="cart-inscription-<?= $row['id'] ?>">
 							<div>
-							<?= !empty($row['inscription']) ? nl2br(CHtml::encode($row['inscription'])) : '&#8211;' ?>
+							<?= !empty($row['inscription']) ? nl2br(Html::encode($row['inscription'])) : '&#8211;' ?>
 							</div>
 							<a href="#">
 								<span class="glyphicon glyphicon-pencil"></span> 

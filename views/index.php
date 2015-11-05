@@ -1,4 +1,5 @@
-<?php $bestsellers = Yii::app()->db->createCommand("SELECT * FROM item WHERE bestsellers <> 0 ORDER BY id LIMIT 20")->queryAll() ?>
+<?php use yii\helpers\Html; ?>
+<?php $bestsellers = Yii::$app->db->createCommand("SELECT * FROM item WHERE bestsellers <> 0 ORDER BY id LIMIT 20")->queryAll() ?>
 <div class="container">
 	<div class="row">
 		<div class="col-md-10">
@@ -31,9 +32,9 @@
 				<div class="carousel-inner">
 					<?php foreach ($bestsellers as $k => $row) { ?>
 					<div class="item<?= $k == 0 ? ' active' : '' ?>">
-						<img src="images/gallery/<?= $row['id'] ?>.png" alt="<?= CHtml::encode($row['name']) ?>" width="600">
+						<img src="images/gallery/<?= $row['id'] ?>.png" alt="<?= Html::encode($row['name']) ?>" width="600">
 						<div class="carousel-caption">
-							<h4><?= CHtml::encode($row['name']) ?></h4>
+							<h4><?= Html::encode($row['name']) ?></h4>
 							<h4><?= price_format($row['price']) ?> руб.</h4>
 							<button type="button" class="btn btn-sm btn-primary" id="item-id-a-<?= $row['id'] ?>" data-loading-text="Добавляю&hellip;">
 								<span class="glyphicon glyphicon-shopping-cart"></span> Положить в корзину
@@ -54,12 +55,12 @@
 		</div>
 		<div class="col-md-6">
 			<p><a href="<?= create_url('cart') ?>">В Вашей корзине</a>: 
-			Позиций: <span class="badge" id="cart-count"><?= Yii::app()->db->createCommand("SELECT COUNT(id) FROM cart WHERE hash = {$hash}")->queryScalar() ?></span>,
-			Футболок: <span class="badge" id="cart-sum"><?= (int)Yii::app()->db->createCommand("SELECT SUM(amount) FROM cart WHERE hash = {$hash}")->queryScalar() ?></span>.</p>
+			Позиций: <span class="badge" id="cart-count"><?= Yii::$app->db->createCommand("SELECT COUNT(id) FROM cart WHERE hash = {$hash}")->queryScalar() ?></span>,
+			Футболок: <span class="badge" id="cart-sum"><?= (int)Yii::$app->db->createCommand("SELECT SUM(amount) FROM cart WHERE hash = {$hash}")->queryScalar() ?></span>.</p>
 			<p><a href="#shop" class="dashed-link">Перейти в основной каталог</a></p>
 			<p><span class="label label-info">Внимание!</span> Вы можете заказать <a href="<?= create_url('vip') ?>"><span class="glyphicon glyphicon-link"></span> свой вариант</a> дизайна футболки <span style="white-space: nowrap;">с предоплатой <em>50%</em>.</span></p>
 			<hr>
-			<h3>Хиты продаж: &nbsp; <span class="chevron-left" title="Предыдущая">&laquo;</span> <span id="item_name"><?= CHtml::encode(Yii::app()->db->createCommand("SELECT name FROM item WHERE bestsellers <> 0 ORDER BY id LIMIT 1")->queryScalar()) ?></span>  <span class="chevron-right" title="Следующая">&raquo;</span></h3>
+			<h3>Хиты продаж: &nbsp; <span class="chevron-left" title="Предыдущая">&laquo;</span> <span id="item_name"><?= Html::encode(Yii::$app->db->createCommand("SELECT name FROM item WHERE bestsellers <> 0 ORDER BY id LIMIT 1")->queryScalar()) ?></span>  <span class="chevron-right" title="Следующая">&raquo;</span></h3>
 			<form class="form-inline" role="form">
 				<input type="hidden" id="item_id" value="1">
 				<div class="form-group">
@@ -89,7 +90,7 @@
 				<div class="form-group">
 					<div class="checkbox">
 						<label>
-							<input type="checkbox" id="cart-item-printpromolink"> Ссылка на <a href="<?= Yii::app()->params['VK.group'] ?>" target="_blank">группу ВКонтакте</a> в правом нижнем углу футболки (<span style="white-space: nowrap;"><em>-10%</em> стоимости</span>).
+							<input type="checkbox" id="cart-item-printpromolink"> Ссылка на <a href="<?= Yii::$app->params['VK.group'] ?>" target="_blank">группу ВКонтакте</a> в правом нижнем углу футболки (<span style="white-space: nowrap;"><em>-10%</em> стоимости</span>).
 						</label>
 					</div>
 				</div>
@@ -122,10 +123,10 @@
 		<hr class="featurette-divider">
 		<div id="links">
 			<?php 
-			$shop = Yii::app()->db->createCommand("SELECT * FROM item WHERE bestsellers = 0 ORDER BY id")->queryAll();
+			$shop = Yii::$app->db->createCommand("SELECT * FROM item WHERE bestsellers = 0 ORDER BY id")->queryAll();
 			foreach ($shop as $k => $row) { ?>
-			<a href="images/gallery/<?= $row['id'] ?>.png?<?= $row['id'] ?>" title="Артикул: <?= CHtml::encode($row['name']) ?>. Цена: <?= price_format($row['price']) ?> руб." data-gallery class="zoom-in">
-		        <img src="images/gallery/thumbs/<?= $row['id'] ?>.png" alt="<?= CHtml::encode($row['name']) ?>">
+			<a href="images/gallery/<?= $row['id'] ?>.png?<?= $row['id'] ?>" title="Артикул: <?= Html::encode($row['name']) ?>. Цена: <?= price_format($row['price']) ?> руб." data-gallery class="zoom-in">
+		        <img src="images/gallery/thumbs/<?= $row['id'] ?>.png" alt="<?= Html::encode($row['name']) ?>">
 		    </a>
 			<?php } ?>
 		</div>

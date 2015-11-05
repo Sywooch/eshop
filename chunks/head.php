@@ -3,10 +3,10 @@ require_once 'config/init.php';
 require_once 'snippets/helper.php';
 use yii\helpers\Html;
 $hash = get_hash_for_sql();
-/* $route = Yii::$app->getUrlManager()->parseUrl(Yii::$app->getRequest());
+$route = Yii::$app->getUrlManager()->parseUrl(Yii::$app->getRequest());
 if(isset(Yii::$app->params['pages'][$route])) {
 	$title = Yii::$app->params['pages'][$route];
-} */
+}
 ?>
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">

@@ -1,12 +1,12 @@
 <?php 
 require_once 'config/init.php';
-use yii\helpers\EshopHelper;
 use yii\helpers\Html;
+use app\helpers\EshopHelper;
 $hash = EshopHelper::getHashForSql();
-/* $route = Yii::$app->getUrlManager()->parseUrl(Yii::$app->getRequest());
+$route = Yii::$app->urlManager->parseRequest(Yii::$app->request)[0];
 if(isset(Yii::$app->params['pages'][$route])) {
 	$title = Yii::$app->params['pages'][$route];
-} */
+}
 ?>
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">

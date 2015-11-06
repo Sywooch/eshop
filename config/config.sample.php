@@ -17,9 +17,9 @@ return [
 			'timeout' => 3600 * 24
 		],
 		'urlManager' => [
-			'urlFormat' => 'path',
+			'enablePrettyUrl' => true,
 			'showScriptName' => false,
-			'urlSuffix' => '.html'
+			'suffix' => '.html'
 		],
 		'mailer' => [
 			'class' => 'yii\swiftmailer\Mailer',

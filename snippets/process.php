@@ -1,6 +1,6 @@
 <?php 
 require_once '../config/init.php';
-use yii\helpers\EshopHelper;
+use app\helpers\EshopHelper;
 if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest') {
 	ini_set('display_errors', 0);
 	// Turn off output buffering

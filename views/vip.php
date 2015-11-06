@@ -1,6 +1,6 @@
 <?php 
 use yii\helpers\Html;
-Yii::import('application.snippets.models.VipForm');
+use app\models\VipForm;
 $model = new VipForm;
 $model->setAttributes($_POST);
 ?>

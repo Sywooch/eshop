@@ -1,6 +1,6 @@
 <?php 
 use yii\helpers\Html; 
-use yii\helpers\EshopHelper;
+use app\helpers\EshopHelper;
 ?>
 <!-- Fixed navbar -->
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">

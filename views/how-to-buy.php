@@ -1,6 +1,6 @@
 <?php 
 use yii\helpers\Html; 
-use yii\helpers\EshopHelper;
+use app\helpers\EshopHelper;
 ?>
 <div class="container">
 	<div class="page-header">

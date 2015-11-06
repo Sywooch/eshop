@@ -1,6 +1,6 @@
 <?php 
 use yii\helpers\Html; 
-use yii\helpers\EshopHelper;
+use app\helpers\EshopHelper;
 ?>
 <div class="col-md-7">
 	<h2 class="featurette-heading"><?= Html::encode($row['name']) ?>. <span class="text-muted"><?= Html::encode($row['announcement']) ?></span></h2>

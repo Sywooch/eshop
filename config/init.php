@@ -13,4 +13,8 @@ require(__DIR__ . '/../vendor/yiisoft/yii2/Yii.php');
 
 new yii\web\Application(require('config.php'));
 
-Yii::$classMap['yii\helpers\EshopHelper'] = '@app/snippets/EshopHelper.php';
+Yii::$classMap['app\helpers\EshopHelper'] = '@app/snippets/EshopHelper.php';
+Yii::$classMap['app\helpers\Sitemap'] = '@app/snippets/Sitemap.php';
+Yii::$classMap['app\models\FeedbackForm'] = '@app/models/FeedbackForm.php';
+Yii::$classMap['app\models\OrderForm'] = '@app/models/OrderForm.php';
+Yii::$classMap['app\models\VipForm'] = '@app/models/VipForm.php';

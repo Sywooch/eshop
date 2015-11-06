@@ -1,11 +1,15 @@
 <?php
-use yii\helpers\EshopHelper;
+namespace app\helpers;
+
+use Yii;
+
+use app\helpers\EshopHelper;
 /**
  * Sitemap class.
  * 
  * What are Sitemaps: http://www.sitemaps.org/
  */
-class Sitemap implements Iterator
+class Sitemap implements \Iterator
 {
 	protected $changefreq = 'always';
 	
@@ -40,7 +44,7 @@ class Sitemap implements Iterator
 	}
 	
 	protected function saveXML() {
-		$dom = new DOMDocument('1.0', 'UTF-8');
+		$dom = new \DOMDocument('1.0', 'UTF-8');
 		$urlset = $dom->createElement('urlset');
 		$urlset->setAttribute('xmlns', 'http://www.sitemaps.org/schemas/sitemap/0.9');
 		while(list($page) = each($this->items)) {

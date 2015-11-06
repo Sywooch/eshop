@@ -1,4 +1,9 @@
 <?php
+namespace app\models;
+
+use Yii;
+use yii\base\Model;
+
 /**
  * OrderForm class.
  * OrderForm is the data structure for keeping order form data.

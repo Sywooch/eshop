@@ -1,7 +1,8 @@
 <?php 
-namespace yii\helpers;
+namespace app\helpers;
 
 use Yii;
+use yii\helpers\Url;
 
 class EshopHelper {
 	
@@ -28,18 +29,21 @@ class EshopHelper {
 	}
 	
 	public static function isCurrent($needle) {
-		/* $route = Yii::$app->getUrlManager()->parseUrl(Yii::$app->getRequest());
-		return $route == $needle || strrpos($route, $needle) !== false; */
+		$route = Yii::$app->urlManager->parseRequest(Yii::$app->request)[0];
+		return $route == $needle || strrpos($route, $needle) !== false;
 	}
 	
 	public static function createUrl($page, $hash = null) {
-		/* $params = array();
+		$params = array();
 		if($hash !== null) {
 			$params = array(
 				'#' => ltrim($hash, '#')
 			);
 		}
-		return Yii::$app->request->hostInfo . Yii::$app->getUrlManager()->createUrl($page, $params); */
+		if($page == '/' && Yii::$app->urlManager->suffix != null) {
+			$page = 'index';
+		}
+		return Yii::$app->request->hostInfo . Yii::$app->urlManager->createUrl($page, $params);
 	}
 	
 }

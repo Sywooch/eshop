@@ -1,4 +1,9 @@
-<?php 
+<?php
+namespace app\models;
+
+use Yii;
+use yii\base\Model;
+
 /**
  * FeedbackForm class.
  * FeedbackForm is the data structure for keeping feedback form data.

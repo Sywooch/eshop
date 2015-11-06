@@ -1,6 +1,6 @@
 <?php 
 use yii\helpers\Html;
-use yii\helpers\EshopHelper;
+use app\helpers\EshopHelper;
 ?>
 <script type="text/javascript" src="js/crypt.min.js"></script>
 <div class="container">

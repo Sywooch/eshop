@@ -1,10 +1,10 @@
 <?php
 use yii\helpers\Html;
-use yii\helpers\EshopHelper;
+use app\helpers\EshopHelper;
+use app\models\OrderForm;
 if(Yii::$app->db->createCommand("SELECT COUNT(id) FROM cart WHERE hash = {$hash}")->queryScalar() == 0) {
 	Yii::$app->request->redirect(EshopHelper::createUrl('/'));
 }
-Yii::import('application.snippets.models.OrderForm');
 $model = new OrderForm;
 $model->setAttributes($_POST);
 $validate = $model->validate();

@@ -1,6 +1,6 @@
 <?php
 use yii\helpers\Html;
-Yii::import('application.snippets.models.FeedbackForm');
+use app\models\FeedbackForm;
 $model = new FeedbackForm;
 $model->setAttributes($_POST);
 ?>

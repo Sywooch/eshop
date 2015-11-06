@@ -1,6 +1,6 @@
 <?php 
 use yii\helpers\Html; 
-use yii\helpers\EshopHelper;
+use app\helpers\EshopHelper;
 $bestsellers = Yii::$app->db->createCommand("SELECT * FROM item WHERE bestsellers <> 0 ORDER BY id LIMIT 20")->queryAll();
 ?>
 <div class="container">

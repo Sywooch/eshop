@@ -1,6 +1,6 @@
 <?php 
 use yii\helpers\Html; 
-use yii\helpers\EshopHelper;
+use app\helpers\EshopHelper;
 Yii::$app->db->createCommand("DELETE FROM cart WHERE created < DATE_SUB(NOW(), INTERVAL 2 DAY)")->execute();
 ?>
 <div class="container">

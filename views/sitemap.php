@@ -1,7 +1,7 @@
 <?php
 use yii\helpers\Html; 
-use yii\helpers\EshopHelper;
-Yii::import('application.snippets.Sitemap');
+use app\helpers\EshopHelper;
+use app\helpers\Sitemap;
 ?>
 <div class="container">
 	<div class="page-header">

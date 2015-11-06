@@ -1,6 +1,6 @@
 <?php 
 require_once '../config/init.php';
-require_once 'helper.php';
+use yii\helpers\EshopHelper;
 if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest') {
 	ini_set('display_errors', 0);
 	// Turn off output buffering
@@ -27,7 +27,7 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH']
 	header("Pragma: no-cache");
 	
 	if(isset($_POST['action'])) {
-		$hash = get_hash_for_sql();
+		$hash = EshopHelper::getHashForSql();
 		
 		// Promocode
 		if($_POST['action'] == 'a') {
@@ -51,7 +51,7 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH']
 			$amount = (int)$_POST['amount'];
 			$inscription = trim($_POST['inscription']);
 			$printpromolink = (int)$_POST['printpromolink'];
-			if(!in_array($size, get_size_array())) {
+			if(!in_array($size, EshopHelper::getClothingSizes())) {
 				$response = ['status' => 0, 'reason' => 'size'];
 			}
 			if($amount <= 0) {
@@ -107,7 +107,7 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH']
 				'status' => $result,
 				'count' => Yii::$app->db->createCommand("SELECT COUNT(id) FROM cart WHERE hash = {$hash}")->queryScalar(),
 				'sum' => (int)Yii::$app->db->createCommand("SELECT SUM(amount) FROM cart WHERE hash = {$hash}")->queryScalar(),
-				'total' => price_format(Yii::$app->db->createCommand("
+				'total' => EshopHelper::priceFormat(Yii::$app->db->createCommand("
 					SELECT SUM(price * amount) FROM cart 
 						INNER JOIN item ON (cart.item_id = item.id)
 					WHERE hash = {$hash}")->queryScalar()),
@@ -118,7 +118,7 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH']
 		elseif($_POST['action'] == 'e') {
 			$set = "modified = " . new CDbExpression('NOW()');
 			$id = (int)$_POST['id'];
-			if(isset($_POST['size']) && in_array($_POST['size'], get_size_array())) {
+			if(isset($_POST['size']) && in_array($_POST['size'], EshopHelper::getClothingSizes())) {
 				$set .= ", size = '{$_POST['size']}' ";
 			}
 			if(isset($_POST['amount'])) {
@@ -135,11 +135,11 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH']
 				'status' => $result,
 				'count' => Yii::$app->db->createCommand("SELECT COUNT(id) FROM cart WHERE hash = {$hash}")->queryScalar(),
 				'sum' => (int)Yii::$app->db->createCommand("SELECT SUM(amount) FROM cart WHERE hash = {$hash}")->queryScalar(),
-				'priceamount' => price_format(Yii::$app->db->createCommand("
+				'priceamount' => EshopHelper::priceFormat(Yii::$app->db->createCommand("
 						SELECT price * amount FROM cart
 						INNER JOIN item ON (cart.item_id = item.id)
 						WHERE cart.id = {$id} AND hash = {$hash}")->queryScalar()),
-				'total' => price_format(Yii::$app->db->createCommand("
+				'total' => EshopHelper::priceFormat(Yii::$app->db->createCommand("
 						SELECT SUM(price * amount) FROM cart
 						INNER JOIN item ON (cart.item_id = item.id)
 						WHERE hash = {$hash}")->queryScalar()),

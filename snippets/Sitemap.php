@@ -1,4 +1,5 @@
 <?php
+use yii\helpers\EshopHelper;
 /**
  * Sitemap class.
  * 
@@ -45,7 +46,7 @@ class Sitemap implements Iterator
 		while(list($page) = each($this->items)) {
 			$url = $dom->createElement('url');
 			$loc = $dom->createElement('loc');
-			$loc->appendChild($dom->createTextNode(create_url($page)));
+			$loc->appendChild($dom->createTextNode(EshopHelper::createUrl($page)));
 			$url->appendChild($loc);
 			$lastmod = $dom->createElement('lastmod');
 			$lastmod->appendChild($dom->createTextNode(date('Y-m-d')));

@@ -1,11 +1,14 @@
-<?php use yii\helpers\Html; ?>
+<?php 
+use yii\helpers\Html;
+use yii\helpers\EshopHelper;
+?>
 <script type="text/javascript" src="js/crypt.min.js"></script>
 <div class="container">
 	<div class="page-header">
 		<h1>О компании</h1>
 	</div>
 	<h3>О дизайне</h3>
-	<p>В основном, если только Вы не заказали <a href="<?= create_url('vip') ?>">свой вариант</a> дизайна,
+	<p>В основном, если только Вы не заказали <a href="<?= EshopHelper::createUrl('vip') ?>">свой вариант</a> дизайна,
 	футболки от <?= Html::encode(Yii::$app->name) ?> - это футболки с различными персонажами из живой природы.</p>
 	<h3 id="details">Реквизиты</h3>
 	<pre>ОГРНИП <script type="text/javascript">document.write(ebg0('000000000000000'));</script>

@@ -1,5 +1,8 @@
-<?php use yii\helpers\Html; ?>
-<?php $bestsellers = Yii::$app->db->createCommand("SELECT * FROM item WHERE bestsellers <> 0 ORDER BY id LIMIT 20")->queryAll() ?>
+<?php 
+use yii\helpers\Html; 
+use yii\helpers\EshopHelper;
+$bestsellers = Yii::$app->db->createCommand("SELECT * FROM item WHERE bestsellers <> 0 ORDER BY id LIMIT 20")->queryAll();
+?>
 <div class="container">
 	<div class="row">
 		<div class="col-md-10">
@@ -35,7 +38,7 @@
 						<img src="images/gallery/<?= $row['id'] ?>.png" alt="<?= Html::encode($row['name']) ?>" width="600">
 						<div class="carousel-caption">
 							<h4><?= Html::encode($row['name']) ?></h4>
-							<h4><?= price_format($row['price']) ?> руб.</h4>
+							<h4><?= EshopHelper::priceFormat($row['price']) ?> руб.</h4>
 							<button type="button" class="btn btn-sm btn-primary" id="item-id-a-<?= $row['id'] ?>" data-loading-text="Добавляю&hellip;">
 								<span class="glyphicon glyphicon-shopping-cart"></span> Положить в корзину
 							</button>
@@ -54,11 +57,11 @@
 			<br>
 		</div>
 		<div class="col-md-6">
-			<p><a href="<?= create_url('cart') ?>">В Вашей корзине</a>: 
+			<p><a href="<?= EshopHelper::createUrl('cart') ?>">В Вашей корзине</a>: 
 			Позиций: <span class="badge" id="cart-count"><?= Yii::$app->db->createCommand("SELECT COUNT(id) FROM cart WHERE hash = {$hash}")->queryScalar() ?></span>,
 			Футболок: <span class="badge" id="cart-sum"><?= (int)Yii::$app->db->createCommand("SELECT SUM(amount) FROM cart WHERE hash = {$hash}")->queryScalar() ?></span>.</p>
 			<p><a href="#shop" class="dashed-link">Перейти в основной каталог</a></p>
-			<p><span class="label label-info">Внимание!</span> Вы можете заказать <a href="<?= create_url('vip') ?>"><span class="glyphicon glyphicon-link"></span> свой вариант</a> дизайна футболки <span style="white-space: nowrap;">с предоплатой <em>50%</em>.</span></p>
+			<p><span class="label label-info">Внимание!</span> Вы можете заказать <a href="<?= EshopHelper::createUrl('vip') ?>"><span class="glyphicon glyphicon-link"></span> свой вариант</a> дизайна футболки <span style="white-space: nowrap;">с предоплатой <em>50%</em>.</span></p>
 			<hr>
 			<h3>Хиты продаж: &nbsp; <span class="chevron-left" title="Предыдущая">&laquo;</span> <span id="item_name"><?= Html::encode(Yii::$app->db->createCommand("SELECT name FROM item WHERE bestsellers <> 0 ORDER BY id LIMIT 1")->queryScalar()) ?></span>  <span class="chevron-right" title="Следующая">&raquo;</span></h3>
 			<form class="form-inline" role="form">
@@ -66,11 +69,11 @@
 				<div class="form-group">
 					<select class="form-control" id="cart-item-size">
 						<option>--- Выберите размер ---</option>
-						<?php foreach (get_size_array() as $value) {?>
+						<?php foreach (EshopHelper::getClothingSizes() as $value) {?>
 							<option><?= $value ?></option>
 						<?php } ?>
 					</select>
-					<a href="#" id="help" class="dashed-link" title="Таблица размеров футболок" data-content='Вы можете перейти на <a href="<?= create_url('help') ?>">страницу с памяткой</a> по размерам футболок, если сомневаетесь что выбрать.'><span class="glyphicon glyphicon-flag"></span></a> &nbsp;
+					<a href="#" id="help" class="dashed-link" title="Таблица размеров футболок" data-content='Вы можете перейти на <a href="<?= EshopHelper::createUrl('help') ?>">страницу с памяткой</a> по размерам футболок, если сомневаетесь что выбрать.'><span class="glyphicon glyphicon-flag"></span></a> &nbsp;
 				</div>
 				<div class="form-group">
 					<input class="form-control cart-item-amount" type="number" id="cart-item-amount" placeholder="0" min="1" step="1" value=""> <label class="text-muted" for="cart-item-amount">Укажите количество</label></span>
@@ -113,7 +116,7 @@
 				<span class="glyphicon glyphicon-shopping-cart"></span> Положить в корзину
 			</button>
 			<hr>
-			<p><a href="<?= create_url('cart') ?>" class="pull-right"><span class="glyphicon glyphicon-link"></span> Просмотреть и обновить корзину</a></p>
+			<p><a href="<?= EshopHelper::createUrl('cart') ?>" class="pull-right"><span class="glyphicon glyphicon-link"></span> Просмотреть и обновить корзину</a></p>
 		</div>
 	</div>
 	<!-- Marketing messaging and featurettes -->
@@ -125,7 +128,7 @@
 			<?php 
 			$shop = Yii::$app->db->createCommand("SELECT * FROM item WHERE bestsellers = 0 ORDER BY id")->queryAll();
 			foreach ($shop as $k => $row) { ?>
-			<a href="images/gallery/<?= $row['id'] ?>.png?<?= $row['id'] ?>" title="Артикул: <?= Html::encode($row['name']) ?>. Цена: <?= price_format($row['price']) ?> руб." data-gallery class="zoom-in">
+			<a href="images/gallery/<?= $row['id'] ?>.png?<?= $row['id'] ?>" title="Артикул: <?= Html::encode($row['name']) ?>. Цена: <?= EshopHelper::priceFormat($row['price']) ?> руб." data-gallery class="zoom-in">
 		        <img src="images/gallery/thumbs/<?= $row['id'] ?>.png" alt="<?= Html::encode($row['name']) ?>">
 		    </a>
 			<?php } ?>
@@ -187,7 +190,7 @@
 	<br>
 	<div class="text-center">
     	<a href="#top" class="label label-default" id="back-to-top">Перейти наверх</a>
-    	<a href="<?= create_url('cart') ?>" class="label label-primary">Перейти в корзину</a>
+    	<a href="<?= EshopHelper::createUrl('cart') ?>" class="label label-primary">Перейти в корзину</a>
     </div>
 	<br>
 </div>
@@ -206,7 +209,7 @@
 				<div class="var-error" style="display: none;">
 					<div class="alert alert-danger"></div>
 				</div>
-				<p class="help-block">Перед оформлением заказа Вы всегда можете просмотреть и в случае необходимости обновить позиции <a href="<?= create_url('cart') ?>" style="white-space: nowrap;"><span class="glyphicon glyphicon-shopping-cart"></span>в Вашей корзине</a> нажимая соответствующие кнопки <span style="white-space: nowrap;">«<span class="glyphicon glyphicon-pencil"></span> Обновить»</span> или <span style="white-space: nowrap;">«<span class="glyphicon glyphicon-remove"></span> Удалить»</span> позицию.</p>
+				<p class="help-block">Перед оформлением заказа Вы всегда можете просмотреть и в случае необходимости обновить позиции <a href="<?= EshopHelper::createUrl('cart') ?>" style="white-space: nowrap;"><span class="glyphicon glyphicon-shopping-cart"></span>в Вашей корзине</a> нажимая соответствующие кнопки <span style="white-space: nowrap;">«<span class="glyphicon glyphicon-pencil"></span> Обновить»</span> или <span style="white-space: nowrap;">«<span class="glyphicon glyphicon-remove"></span> Удалить»</span> позицию.</p>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>

@@ -1,12 +1,12 @@
 <?php 
 require_once 'config/init.php';
-require_once 'snippets/helper.php';
+use yii\helpers\EshopHelper;
 use yii\helpers\Html;
-$hash = get_hash_for_sql();
-$route = Yii::$app->getUrlManager()->parseUrl(Yii::$app->getRequest());
+$hash = EshopHelper::getHashForSql();
+/* $route = Yii::$app->getUrlManager()->parseUrl(Yii::$app->getRequest());
 if(isset(Yii::$app->params['pages'][$route])) {
 	$title = Yii::$app->params['pages'][$route];
-}
+} */
 ?>
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
@@ -35,7 +35,7 @@ if(isset(Yii::$app->params['pages'][$route])) {
 		VK.init({apiId: <?= Yii::$app->params['VK.init.apiId'] ?>, onlyWidgets: true});
 		</script>
 		<script type="text/javascript">
-			var eshop = {"order": "<?= create_url('order') ?>"};
+			var eshop = {"order": "<?= EshopHelper::createUrl('order') ?>"};
 		</script>
 	</head>
 		<body>

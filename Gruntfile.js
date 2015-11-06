@@ -6,8 +6,8 @@ module.exports = function(grunt) {
 			build: {
 				files: {
 					'js/output.min.js': [
-					    'vendors/colorbox/jquery.colorbox.js',
-					    'vendors/colorbox/i18n/jquery.colorbox-ru.js',
+					    'bower_components/colorbox/jquery.colorbox.js',
+					    'bower_components/colorbox/i18n/jquery.colorbox-ru.js',
 					    'js/ya-share.js',
 					    'js/rpc.js',
 					    'js/default.js'

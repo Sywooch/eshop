@@ -19,12 +19,12 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap": "~3.3.0",
-    "jquery": "~2.1.1",
-    "blueimp-bootstrap-image-gallery": "~3.1.1",
-    "blueimp-gallery": "~2.15.1",
-    "blueimp-file-upload": "~9.8.0",
-    "colorbox": "~1.5.14",
+    "bootstrap": "3",
+    "jquery": "2",
+    "blueimp-bootstrap-image-gallery": "3",
+    "blueimp-gallery": "2",
+    "blueimp-file-upload": "9",
+    "colorbox": "1",
     "html5shiv": "~3.7.*",
     "respond": "~1.4.*"
   }

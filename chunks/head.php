@@ -18,16 +18,16 @@ if(isset(Yii::$app->params['pages'][$route])) {
 		<meta name="description" content="<?= Html::encode(isset(Yii::$app->params['description']) ? Yii::$app->params['description'] : Yii::$app->name) ?>">
 		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 		<!-- Bootstrap -->
-		<link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-		<script src="vendors/bootstrap/vendor/js/jquery.js"></script>
+		<script src="bower_components/jquery/dist/jquery.min.js"></script>
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
-			<script src="vendors/bootstrap/vendor/js/html5shiv.js"></script>
-			<script src="vendors/bootstrap/vendor/js/respond.min.js"></script>
+			<script src="bower_components/html5shiv/dist/html5shiv.min.js"></script>
+			<script src="bower_components/respond/dest/respond.min.js"></script>
 		<![endif]-->
-		<link rel="stylesheet" href="vendors/blueimp-gallery/css/blueimp-gallery.min.css">
-		<link rel="stylesheet" href="vendors/blueimp-bootstrap-image-gallery/css/bootstrap-image-gallery.min.css">
+		<link rel="stylesheet" href="bower_components/blueimp-gallery/css/blueimp-gallery.min.css">
+		<link rel="stylesheet" href="bower_components/blueimp-bootstrap-image-gallery/css/bootstrap-image-gallery.min.css">
 		<link href="css/output.min.css" rel="stylesheet">
 		<script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>
 		<script type="text/javascript" src="//vk.com/js/api/openapi.js?113"></script>

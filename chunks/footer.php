@@ -11,9 +11,9 @@ use yii\helpers\EshopHelper;
 			</div>
 		</div>
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
-		<script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-		<script src="vendors/blueimp-gallery/js/jquery.blueimp-gallery.min.js"></script>
-		<script src="vendors/blueimp-bootstrap-image-gallery/js/bootstrap-image-gallery.min.js"></script>
+		<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="bower_components/blueimp-gallery/js/jquery.blueimp-gallery.min.js"></script>
+		<script src="bower_components/blueimp-bootstrap-image-gallery/js/bootstrap-image-gallery.min.js"></script>
 		<script type="text/javascript" src="js/output.min.js"></script>
 	</body>
 </html>

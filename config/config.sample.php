@@ -21,6 +21,9 @@ return [
 			'showScriptName' => false,
 			'urlSuffix' => '.html'
 		],
+		'mailer' => [
+			'class' => 'yii\swiftmailer\Mailer',
+		],
 	],
 	'params' => [
 		'phone' => '',

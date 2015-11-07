@@ -29,21 +29,22 @@ class EshopHelper {
 	}
 	
 	public static function isCurrent($needle) {
+		if($needle == '/' && Yii::$app->urlManager->suffix != null) {
+			$needle = 'index';
+		}
 		$route = Yii::$app->urlManager->parseRequest(Yii::$app->request)[0];
 		return $route == $needle || strrpos($route, $needle) !== false;
 	}
 	
 	public static function createUrl($page, $hash = null) {
-		$params = array();
-		if($hash !== null) {
-			$params = array(
-				'#' => ltrim($hash, '#')
-			);
-		}
 		if($page == '/' && Yii::$app->urlManager->suffix != null) {
 			$page = 'index';
 		}
-		return Yii::$app->request->hostInfo . Yii::$app->urlManager->createUrl($page, $params);
+		$params[] = $page;
+		if($hash !== null) {
+			$params['#'] = ltrim($hash, '#');
+		}
+		return Yii::$app->request->hostInfo . Yii::$app->urlManager->createUrl($params);
 	}
 	
 }

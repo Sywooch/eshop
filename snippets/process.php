@@ -69,7 +69,7 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH']
 			 			{$amount},
 			 			" . Yii::$app->db->quoteValue($inscription) . ",
 			 			{$printpromolink},
-			 			" . new CDbExpression('NOW()') . "
+			 			" . new \yii\db\Expression('NOW()') . "
 			 		)" // ON DUPLICATE KEY UPDATE
 				)->execute();
 				$response = [
@@ -88,7 +88,7 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH']
 			 		VALUES (
 			 			{$hash},
 			 			{$item_id},
-			 			" . new CDbExpression('NOW()') . "
+			 			" . new \yii\db\Expression('NOW()') . "
 			 		)" // ON DUPLICATE KEY UPDATE
 			)->execute();
 			Yii::$app->db->createCommand("UPDATE cart SET amount=amount+1 WHERE id = " . Yii::$app->db->lastInsertID)->execute() . " AND hash = {$hash}";
@@ -116,7 +116,7 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH']
 		
 		// Update cart
 		elseif($_POST['action'] == 'e') {
-			$set = "modified = " . new CDbExpression('NOW()');
+			$set = "modified = " . new \yii\db\Expression('NOW()');
 			$id = (int)$_POST['id'];
 			if(isset($_POST['size']) && in_array($_POST['size'], EshopHelper::getClothingSizes())) {
 				$set .= ", size = '{$_POST['size']}' ";
@@ -147,7 +147,7 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH']
 		}
 		
 		elseif($_POST['action'] == 'f') {
-			$set = "modified = " . new CDbExpression('NOW()');
+			$set = "modified = " . new \yii\db\Expression('NOW()');
 			$id = (int)$_POST['id'];
 			$inscription = trim($_POST['inscription']);
 			$result = Yii::$app->db->createCommand("UPDATE cart SET inscription = " . Yii::$app->db->quoteValue($inscription) . " WHERE id = {$id} AND hash = {$hash}")->execute();

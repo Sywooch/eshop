@@ -14,7 +14,7 @@ try
 			:email,
 			:phone,
 			:comment,
-			" . new CDbExpression('NOW()') . "
+			" . new \yii\db\Expression('NOW()') . "
 		)
 	");
 	$command->bindParam(":fio", $model->fio, PDO::PARAM_STR);

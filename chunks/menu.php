@@ -21,7 +21,7 @@ use app\helpers\EshopHelper;
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-home"></span> Каталог <b class="caret"></b></a>
 					<ul class="dropdown-menu">
-						<?php if(EshopHelper::isCurrent('')) { ?>
+						<?php if(EshopHelper::isCurrent('/')) { ?>
 							<li><a href="#top">Главная страница</a></li>
 							<li><a href="#bestsellers">Хиты продаж</a></li>
 							<li><a href="#shop">Основной каталог</a></li>
@@ -38,7 +38,7 @@ use app\helpers\EshopHelper;
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Навигация по сайту <b class="caret"></b></a>
 					<ul class="dropdown-menu">
-						<?php if(!EshopHelper::isCurrent('')) { ?>
+						<?php if(!EshopHelper::isCurrent('/')) { ?>
 						<li><a href="<?= EshopHelper::createUrl('/') ?>"><span class="glyphicon glyphicon-home"></span> Главная страница</a></li>
 						<li><a href="<?= EshopHelper::createUrl('/', '#bestsellers') ?>">Хиты продаж</a></li>
 						<li><a href="<?= EshopHelper::createUrl('/', '#shop') ?>">Основной каталог</a></li>

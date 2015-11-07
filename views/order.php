@@ -71,5 +71,13 @@ $validate = $model->validate();
 		require_once 'snippets/order.php';
 	?>
 	<div class="alert alert-success">Ваш заказ №<?= $order_id ?> успешно отправлен. Спасибо, что заказали футболки от  <?= Html::encode(Yii::$app->name) ?>!</div>
-	<?php } ?>
+	<?php 
+	/* Yii::$app->mailer->compose()
+	 ->setFrom()
+	->setTo()
+	->setSubject()
+	->setTextBody()
+	->setHtmlBody()
+	->send();	 */
+	} ?>
 </div>

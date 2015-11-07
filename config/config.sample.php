@@ -1,8 +1,11 @@
 <?php
+
+$params = require(__DIR__ . '/params.php');
+
 return [
 	'id' => 'basic',
-	'language' => 'ru',
-	'basePath' => dirname(dirname(__FILE__)),
+	'language' => 'ru-RU',
+	'basePath' => dirname(__DIR__),
 	'name' => 'eshop',
 	'components' => [
 		'db' => [
@@ -24,26 +27,19 @@ return [
 		'mailer' => [
 			'class' => 'yii\swiftmailer\Mailer',
 		],
+		'i18n' => [
+			'translations' => [
+				'app*' => [
+					'class' => 'yii\i18n\PhpMessageSource',
+					//'basePath' => '@app/messages',
+					'sourceLanguage' => 'ru-RU',
+					'fileMap' => [
+						'app' => 'app.php',
+						'app/error' => 'error.php',
+					],
+				],
+			],
+		],
 	],
-	'params' => [
-		'phone' => '',
-		'email' => '',
-		'VK.init.apiId' => 0, // http://vk.com/dev/Like
-		'VK.Widgets.Group' => 0, // http://vk.com/dev/Community
-		'VK.group' => '', // example: https://vk.com/dev.earthperson
-		'description' => 'Простой каркас для интернет-магазина',
-		'pages' => [
-			'/' => 'Каталог',
-			'cart' => 'Корзина',
-			'how-to-buy' => 'Где и как купить футболку',
-			'shipping' => 'Условия и способы доставки',
-			'vip' => 'Заказать свой вариант дизайна',
-			'payment' => 'Способы оплаты',
-			'help' => 'Таблицы размеров футболок',
-			'about' => 'О компании',
-			'public-offer' => 'Публичная оферта',
-			'feedback' => 'Обратная связь',
-			'sitemap' => 'Карта сайта',
-		]
-	],
+	'params' => $params,
 ];

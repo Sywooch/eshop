@@ -57,5 +57,13 @@ $model->setAttributes($_POST);
 	</div>
 	<?php } else { ?>
 	<div class="alert alert-success">Спасибо, что заказали свой вариант дизайна футболок от  <?= Html::encode(Yii::$app->name) ?>!</div>
-	<?php } ?>
+	<?php
+	/* Yii::$app->mailer->compose()
+	 ->setFrom()
+	->setTo()
+	->setSubject()
+	->setTextBody()
+	->setHtmlBody()
+	->send();	 */
+	} ?>
 </div>

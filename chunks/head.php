@@ -1,6 +1,7 @@
 <?php 
 require_once 'config/init.php';
 use yii\helpers\Html;
+use yii\helpers\Url;
 use app\helpers\EshopHelper;
 $hash = EshopHelper::getHashForSql();
 $route = Yii::$app->urlManager->parseRequest(Yii::$app->request)[0];
@@ -16,7 +17,7 @@ if(isset(Yii::$app->params['pages'][$route])) {
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title><?= Html::encode(Yii::$app->name) . (isset($title) ? Html::encode(' | ' . $title) : '') ?></title>
 		<meta name="description" content="<?= Html::encode(isset(Yii::$app->params['description']) ? Yii::$app->params['description'] : Yii::$app->name) ?>">
-		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="<?= Url::home() ?>favicon.ico" type="image/x-icon" />
 		<!-- Bootstrap -->
 		<link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

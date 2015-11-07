@@ -7,8 +7,8 @@ use app\helpers\EshopHelper;
 	<p class="lead"><?= Html::encode($row['description']) ?></p>
 	<h3 class="price"><?= EshopHelper::priceFormat($row['price']) ?> руб.</h3>
 	<p>
-		<button type="button" class="btn btn-lg btn-primary" id="item-id-b-<?= $row['id'] ?>" data-loading-text="Добавляю&hellip;">
-			<span class="glyphicon glyphicon-shopping-cart"></span> Положить в корзину
+		<button type="button" class="btn btn-lg btn-primary" id="item-id-b-<?= $row['id'] ?>" data-loading-text="<?= \Yii::t('app', 'Добавляю') ?>&hellip;">
+			<span class="glyphicon glyphicon-shopping-cart"></span> <?= \Yii::t('app', 'Положить в корзину') ?>
 		</button>
 	</p>
 </div>

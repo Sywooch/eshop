@@ -6,7 +6,7 @@ $model->setAttributes($_POST);
 ?>
 <div class="container">
 	<div class="page-header">
-		<h1>Обратная связь</h1>
+		<h1><?php echo \Yii::t('app', 'Обратная связь') ?></h1>
 	</div>
 	<?php if(empty($_POST) or !$model->validate()) { ?>
 	<p>Способы обратной связи:</p>
@@ -17,7 +17,7 @@ $model->setAttributes($_POST);
 		<li>Написать письмо на почту <?= Yii::$app->params['email'] ?> в свободной форме с указанием Ваших координат и ФИО.</li>
 	</ol>
 	<div class="well">
-		<h3 class="text-info">Форма обратной связи</h3>
+		<h3 class="text-info"><?php echo \Yii::t('app', 'Форма обратной связи') ?></h3>
 		<?php 
 		if(!empty($_POST)) {
 			$errors = $model->getErrors();
@@ -57,5 +57,13 @@ $model->setAttributes($_POST);
 	</div>
 	<?php } else { ?>
 	<div class="alert alert-success">Спасибо! Обратная связь с Клиентами помогает улучшить наш сервис.</div>
-	<?php } ?>
+	<?php 
+		/* Yii::$app->mailer->compose()
+		->setFrom()
+		->setTo()
+		->setSubject()
+		->setTextBody()
+		->setHtmlBody()
+		->send();	 */
+	} ?>
 </div>

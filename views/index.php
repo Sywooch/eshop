@@ -75,8 +75,9 @@ $bestsellers = Yii::$app->db->createCommand("SELECT * FROM item WHERE bestseller
 					</select>
 					<a href="#" id="help" class="dashed-link" title="<?= \Yii::t('app', 'Таблица размеров футболок') ?>" data-content='<?= \Yii::t('app', 'Вы можете перейти на <a href="{0}">страницу с памяткой</a> по размерам футболок, если сомневаетесь что выбрать.', EshopHelper::createUrl('help')) ?>'><span class="glyphicon glyphicon-flag"></span></a> &nbsp;
 				</div>
-				<div class="form-group">
-					<input class="form-control cart-item-amount" type="number" id="cart-item-amount" placeholder="0" min="1" step="1" value=""> <label class="text-muted" for="cart-item-amount"><?= \Yii::t('app', 'Укажите количество') ?></label></span>
+				<div class="form-group cart-item-amount-group">
+					<label class="text-muted" for="cart-item-amount"><?= \Yii::t('app', 'Укажите количество') ?></label>
+					<input class="form-control cart-item-amount" type="number" id="cart-item-amount" placeholder="0" min="1" step="1" value="">
 				</div>
 			</form>
 			<form role="form">

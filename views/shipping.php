@@ -10,8 +10,8 @@
 			<a href="https://pochta.ru/" target="_blank">Почтой Росии</a> в остальные регионы.
 			<a href="https://pochta.ru/support/popular-questions/delivery-time-cost" target="_blank">Стоимость доставки</a> 
 			смотрите на официальном сайте почты России. Там же Вы сможете при помощи 
-			<a href="https://pochta.ru/support/popular-questions/products-location" target="_blank">трек-номер</a> <a href="https://pochta.ru/tracking" target="_blank">отслеживать</a> почтовое отправление.
-			Примерный вес футболки <em>150-200</em> грамм.
+			<a href="https://pochta.ru/support/popular-questions/products-location" target="_blank">трек-номера</a> <a href="https://pochta.ru/tracking" target="_blank">отслеживать</a> почтовое отправление.
+			Примерный вес футболки <em>150–200</em> грамм.
 		</li>
 	</ol>
 	<?php } else { ?>

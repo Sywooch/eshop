@@ -102,7 +102,7 @@ span[class^="chevron-"] {
 .cart-item-amount {
 	width: 64px !important;	
 }
-#cart-item-amount + label {
+.cart-item-amount-group label {
 	font-weight: normal;
 }
 #cart-item-size {
@@ -134,7 +134,7 @@ span[class^="chevron-"] {
 	text-decoration: none;
 	opacity: 0.7;
 }
-input[name="math"] {
+input[name$="[math]"] {
 	width: 100px;
 }
 #footer {

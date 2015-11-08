@@ -11,11 +11,10 @@ use yii\base\Model;
 class VipForm extends Model
 {
 	public $fio;
-	public $email;
 	public $phone;
+	public $email;
 	public $text;
 	public $math;
-	
 	public $nospam;
 
 	/**
@@ -24,9 +23,13 @@ class VipForm extends Model
 	public function rules()
 	{
 		return [
-			['fio, email, phone, text, math', 'required'],
+			[['fio', 'phone', 'email', 'text', 'math'], 'required'],
 			['email', 'email'],
-			['math', 'mathOperation'],
+			['math', function ($attribute, $params) {
+				if(Yii::$app->session['math'] != $this->$attribute) {
+					$this->addError($attribute, \Yii::t('app', 'Вы неправильно заполнили ответ в поле защиты от спама.'));
+				}
+			}],
 			['nospam', 'compare', 'compareValue' => ''],
 		];
 	}
@@ -39,19 +42,14 @@ class VipForm extends Model
 	public function attributeLabels()
 	{
 		return [
-			'fio'=>'ФИО',
-			'phone'=>'Телефон',
-			'text'=>'Сообщение',
-			'math'=>'Защита от спама',
+			'fio'=>\Yii::t('app', 'ФИО') ,
+			'phone'=>\Yii::t('app', 'Телефон'),
+			'email'=>\Yii::t('app', 'Email'),
+			'text'=>\Yii::t('app', 'Сообщение'),
+			'math'=>\Yii::t('app', 'Защита от спама'),
 		];
 	}
 
-	public function mathOperation($attribute, $params) {
-		if(Yii::$app->session['math'] != $this->$attribute) {
-			$this->addError($attribute, 'Вы неправильно заполнили ответ в поле защиты от спама.');
-		}
-	}
-	
 	public function mathInit() {
 		$math = [
 			'op1' => mt_rand(50, 100),
@@ -60,5 +58,18 @@ class VipForm extends Model
 		];
 		Yii::$app->session['math'] = $math['operator'] == 0 ? $math['op1'] - $math['op2'] : $math['op1'] + $math['op2'];
 		return $math;
+	}
+	
+	public function mail() {
+		if ($this->validate()) {
+			/* Yii::$app->mailer->compose()
+			->setTo(Yii::$app->params['email'])
+			->setFrom([$this->email => $this->fio])
+			->setSubject(\Yii::t('app', 'Заполнена форма заказа своего варианта футболки'))
+			->setTextBody($this->text)
+			->send();  */
+			return true;
+		}
+		return false;
 	}
 }

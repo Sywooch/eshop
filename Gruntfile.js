@@ -9,6 +9,8 @@ module.exports = function(grunt) {
 					    'bower_components/colorbox/jquery.colorbox.js',
 					    'bower_components/colorbox/i18n/jquery.colorbox-ru.js',
 					    'js/ya-share.js',
+					    'js/i18n/eshop.js',
+					    'js/i18n/ru.js', 
 					    'js/rpc.js',
 					    'js/default.js'
 					],
@@ -31,7 +33,7 @@ module.exports = function(grunt) {
 		},
 		watch: {
 			scripts: {
-				files: ['js/*', '!js/output.min.js', 'css/*', '!css/output.min.css'],
+				files: ['Gruntfile.js', 'js/*', 'js/i18n/*', '!js/output.min.js', 'css/*', '!css/output.min.css'],
 				tasks: ['uglify', 'jshint', 'cssmin']
 			},
 		}

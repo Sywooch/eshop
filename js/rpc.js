@@ -53,17 +53,17 @@ $(document).ready(function() {
 			'promocode': $.trim($('#cart-item-promocode').val())
 		}, function(data, textStatus, jqXHR) {
 			if(textStatus == 'success' && data['status'] == 1) {
-				$('#modalCart .alert-success').html('Вы добавили футболок: <span class="amount badge">' + amount + '</span>.');
+				$('#modalCart .alert-success').html($.fn.eshop('added', amount));
 				$('#modalCart .var-error').hide();
 				$('#modalCart .var-success').show();
 				updateCartCharacteristics(data);
 			}
 			else {
 				if(data['reason'] == 'size') {
-					$('#modalCart .alert-danger').html('Вы не выбрали размер.');
+					$('#modalCart .alert-danger').html($.fn.eshop('size'));
 				}
 				else if(data['reason'] == 'amount') {
-					$('#modalCart .alert-danger').html('Вы не указали количество.');
+					$('#modalCart .alert-danger').html($.fn.eshop('amount'));
 				}
 				$('#modalCart .var-success').hide();
 				$('#modalCart .var-error').show();
@@ -83,7 +83,7 @@ $(document).ready(function() {
 			'item_id': getId($(this))
 		}, function(data, textStatus, jqXHR) {
 			if(textStatus == 'success' && data['status'] == 1) {
-				$('#modalCart .alert-success').html('Вы положили <span class="badge">1</span> футболку в Вашу корзину.');
+				$('#modalCart .alert-success').html($.fn.eshop('push'));
 				$('#modalCart .var-error').hide();
 				$('#modalCart .var-success').show();
 				updateCartCharacteristics(data);
@@ -108,7 +108,7 @@ $(document).ready(function() {
 				'item_id': id
 			}, function(data, textStatus, jqXHR) {
 				if(textStatus == 'success' && data['status'] == 1) {
-					$('#modalCart .alert-success').html('Вы положили <span class="badge">1</span> футболку в Вашу корзину.');
+					$('#modalCart .alert-success').html($.fn.eshop('push'));
 					$('#modalCart .var-error').hide();
 					$('#modalCart .var-success').show();
 					updateCartCharacteristics(data);

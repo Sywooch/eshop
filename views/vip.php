@@ -13,7 +13,7 @@ $model->attributes = \Yii::$app->request->post('VipForm');
 	<p><?= \Yii::t('app', 'Вы можете заказать свой вариант дизайна следующими способами:') ?></p>
 	<ol>
 		<li><?= \Yii::t('app', 'Воспользовавшись формой на этой странице') ?>;</li>
-		<li><?= \Yii::t('app', 'Написать сообщение администраторам') ?> <a href="<?= Yii::$app->params['VK.group'] ?>" target="_blank"><img src="images/vk.com.jpg" width="16" height="16" alt="" title="<?= \Yii::t('app', 'Группа ВКонтакте') ?>"></a> <a href="<?= Yii::$app->params['VK.group'] ?>" target="_blank"><?= \Yii::t('app', 'группы ВКонтакте') ?></a>;</li>
+		<li><?= \Yii::t('app', 'Написать сообщение администраторам') ?> <a href="<?= Yii::$app->params['VK.group'] ?>" target="_blank"><img src="images/<?= strpos(Yii::$app->language, 'ru') !== false ? 'vk' : 'fb' ?>.png" width="16" height="16" alt="" title="<?= \Yii::t('app', 'Группа ВКонтакте') ?>"></a> <a href="<?= Yii::$app->params['VK.group'] ?>" target="_blank"><?= \Yii::t('app', 'группы ВКонтакте') ?></a>;</li>
 		<li><?= \Yii::t('app', 'Написать письмо на почту {0} в свободной форме с указанием Ваших координат и ФИО', Yii::$app->params['email']) ?>.</li>
 	</ol>
 	<div class="well">
